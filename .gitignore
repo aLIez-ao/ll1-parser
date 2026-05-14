@@ -1,0 +1,42 @@
+# ── Build & Temporales ────────────────────────────────────────────────────────
+build/
+bin/
+cmake-build-*/
+.cache/
+
+# ── Compilados y Binarios ─────────────────────────────────────────────────────
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.out
+*.exe
+*.pdb
+*.ilk
+
+# ── CMake generados ───────────────────────────────────────────────────────────
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+Makefile
+install_manifest.txt
+_deps/
+
+# ── Editores (VS Code / JetBrains / etc) ──────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Sistema ───────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── .tmp/ ─────────────────────────────────────────────────────────────────────
+.tmp/
+
+# ── .tmp/ ─────────────────────────────────────────────────────────────────────
