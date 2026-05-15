@@ -1,0 +1,1 @@
+// AST Visitor implementation - methods are inline in ast_node.h
