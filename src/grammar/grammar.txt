@@ -1,0 +1,44 @@
+# Gramática LL(1) - Lenguaje Pascal Simplificado
+# Formato: NoTerminal -> producción
+# Separador de alternativas: |
+# Comentarios تبدأ con #
+
+# Programa principal
+P -> PROGRAM ID SEMICOLON D B
+
+# Declaraciones
+D -> VAR L
+
+# Lista de variables
+L -> ID COLON T SEMICOLON L
+
+# Producción epsilon (vacia)
+L -> EPS
+
+# Tipos de datos
+T -> INT
+T -> FLOAT
+
+# Bloque de instrucciones
+B -> BEGIN S END
+
+# Sentencias
+S -> ID ASSIGN E SEMICOLON S
+
+# Sentencias epsilon
+S -> EPS
+
+# Expresiones
+E -> F E'
+
+# Expresiones aritméticas
+E' -> PLUS F E'
+E' -> EPS
+
+# Factores
+F -> ID
+F -> NUM
+
+# Terminales (tokens del lexer):
+# PROGRAM, ID, SEMICOLON, VAR, COLON, INT, FLOAT
+# BEGIN, END, ASSIGN, PLUS, NUM, EPS

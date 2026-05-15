@@ -1,0 +1,95 @@
+   0 | [INIT] Inicializacion del parser
+         Pila: $ P
+         Tokens de entrada: 25
+   1 | [STEP] P vs PROGRAM
+   0 | [EXPAND] Expandir no-terminal: P -> PROGRAM ID SEMICOLON D B
+   2 | [STEP] PROGRAM vs PROGRAM
+   2 | [MATCH] Match - Terminal coincide: PROGRAM - Token: 'program'
+   3 | [STEP] ID vs ID
+   3 | [MATCH] Match - Terminal coincide: ID - Token: 'miPrograma'
+   4 | [STEP] SEMICOLON vs SEMICOLON
+   4 | [MATCH] Match - Terminal coincide: SEMICOLON - Token: ';'
+   5 | [STEP] D vs VAR
+   3 | [EXPAND] Expandir no-terminal: D -> VAR L
+   6 | [STEP] VAR vs VAR
+   6 | [MATCH] Match - Terminal coincide: VAR - Token: 'var'
+   7 | [STEP] L vs ID
+   4 | [EXPAND] Expandir no-terminal: L -> ID COLON T SEMICOLON L2
+   8 | [STEP] ID vs ID
+   8 | [MATCH] Match - Terminal coincide: ID - Token: 'x'
+   9 | [STEP] COLON vs COLON
+   9 | [MATCH] Match - Terminal coincide: COLON - Token: ':'
+  10 | [STEP] T vs INT
+   6 | [EXPAND] Expandir no-terminal: T -> INT
+  11 | [STEP] INT vs INT
+  11 | [MATCH] Match - Terminal coincide: INT - Token: 'int'
+  12 | [STEP] SEMICOLON vs SEMICOLON
+  12 | [MATCH] Match - Terminal coincide: SEMICOLON - Token: ';'
+  13 | [STEP] L2 vs ID
+   8 | [EXPAND] Expandir no-terminal: L2 -> L
+  14 | [STEP] L vs ID
+   8 | [EXPAND] Expandir no-terminal: L -> ID COLON T SEMICOLON L2
+  15 | [STEP] ID vs ID
+  15 | [MATCH] Match - Terminal coincide: ID - Token: 'y'
+  16 | [STEP] COLON vs COLON
+  16 | [MATCH] Match - Terminal coincide: COLON - Token: ':'
+  17 | [STEP] T vs FLOAT
+  10 | [EXPAND] Expandir no-terminal: T -> FLOAT
+  18 | [STEP] FLOAT vs FLOAT
+  18 | [MATCH] Match - Terminal coincide: FLOAT - Token: 'float'
+  19 | [STEP] SEMICOLON vs SEMICOLON
+  19 | [MATCH] Match - Terminal coincide: SEMICOLON - Token: ';'
+  20 | [STEP] L2 vs BEGIN
+  12 | [EXPAND] Expandir no-terminal: L2 -> EPS
+  21 | [STEP] B vs BEGIN
+  12 | [EXPAND] Expandir no-terminal: B -> BEGIN S END
+  22 | [STEP] BEGIN vs BEGIN
+  22 | [MATCH] Match - Terminal coincide: BEGIN - Token: 'begin'
+  23 | [STEP] S vs ID
+  13 | [EXPAND] Expandir no-terminal: S -> ID ASSIGN E SEMICOLON S2
+  24 | [STEP] ID vs ID
+  24 | [MATCH] Match - Terminal coincide: ID - Token: 'x'
+  25 | [STEP] ASSIGN vs ASSIGN
+  25 | [MATCH] Match - Terminal coincide: ASSIGN - Token: '='
+  26 | [STEP] E vs NUM
+  15 | [EXPAND] Expandir no-terminal: E -> F E2
+  27 | [STEP] F vs NUM
+  15 | [EXPAND] Expandir no-terminal: F -> NUM
+  28 | [STEP] NUM vs NUM
+  28 | [MATCH] Match - Terminal coincide: NUM - Token: '10'
+  29 | [STEP] E2 vs SEMICOLON
+  16 | [EXPAND] Expandir no-terminal: E2 -> EPS
+  30 | [STEP] SEMICOLON vs SEMICOLON
+  30 | [MATCH] Match - Terminal coincide: SEMICOLON - Token: ';'
+  31 | [STEP] S2 vs ID
+  17 | [EXPAND] Expandir no-terminal: S2 -> S
+  32 | [STEP] S vs ID
+  17 | [EXPAND] Expandir no-terminal: S -> ID ASSIGN E SEMICOLON S2
+  33 | [STEP] ID vs ID
+  33 | [MATCH] Match - Terminal coincide: ID - Token: 'y'
+  34 | [STEP] ASSIGN vs ASSIGN
+  34 | [MATCH] Match - Terminal coincide: ASSIGN - Token: '='
+  35 | [STEP] E vs ID
+  19 | [EXPAND] Expandir no-terminal: E -> F E2
+  36 | [STEP] F vs ID
+  19 | [EXPAND] Expandir no-terminal: F -> ID
+  37 | [STEP] ID vs ID
+  37 | [MATCH] Match - Terminal coincide: ID - Token: 'x'
+  38 | [STEP] E2 vs PLUS
+  20 | [EXPAND] Expandir no-terminal: E2 -> PLUS F E2
+  39 | [STEP] PLUS vs PLUS
+  39 | [MATCH] Match - Terminal coincide: PLUS - Token: '+'
+  40 | [STEP] F vs NUM
+  21 | [EXPAND] Expandir no-terminal: F -> NUM
+  41 | [STEP] NUM vs NUM
+  41 | [MATCH] Match - Terminal coincide: NUM - Token: '5'
+  42 | [STEP] E2 vs SEMICOLON
+  22 | [EXPAND] Expandir no-terminal: E2 -> EPS
+  43 | [STEP] SEMICOLON vs SEMICOLON
+  43 | [MATCH] Match - Terminal coincide: SEMICOLON - Token: ';'
+  44 | [STEP] S2 vs END
+  23 | [EXPAND] Expandir no-terminal: S2 -> EPS
+  45 | [STEP] END vs END
+  45 | [MATCH] Match - Terminal coincide: END - Token: 'end'
+  46 | [STEP] $ vs $
+  46 | [OK] Analisis exitoso

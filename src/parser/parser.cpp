@@ -17,22 +17,38 @@ void LL1Parser::enableASTBuilding(bool enable) {
 }
 
 LL1Parser::Result LL1Parser::parse(const std::vector<Token>& tokens,
-                                     const LL1Table& ll1Table,
-                                     const std::string& startSymbol) {
+                                      const LL1Table& ll1Table,
+                                      const std::string& startSymbol,
+                                      const std::vector<std::string>& nonTerminals) {
     Result result;
-    init(tokens, ll1Table, startSymbol);
+    currentResult_ = &result;
+    init(tokens, ll1Table, startSymbol, nonTerminals);
 
     traceManager_.logInitialization(startSymbol, static_cast<int>(tokens.size()));
 
     int step = 0;
-    while (!stack_.empty() && hasMoreTokens()) {
+    bool parsingComplete = false;
+    while (!stack_.empty()) {
         step++;
         std::string top = stack_.top();
         std::string cur = currentSymbol();
 
         traceManager_.logStep(step, top, cur);
 
-        if (isTerminal(top)) {
+        if (top == "$") {
+            if (cur == "$") {
+                traceManager_.logSuccess(step, "Analisis exitoso");
+                stack_.pop();
+                parsingComplete = true;
+                break;
+            } else {
+                error("$", cur);
+                result.errors.push_back("Error: esperado $, recibido " + cur);
+                result.errorCount++;
+                break;
+            }
+        }
+        else if (isTerminal(top)) {
             if (top == cur) {
                 traceManager_.logMatch(step, top, tokens_[currentTokenIndex_].lexeme);
                 stack_.pop();
@@ -47,24 +63,17 @@ LL1Parser::Result LL1Parser::parse(const std::vector<Token>& tokens,
         else if (isNonTerminal(top)) {
             expandNonTerminal(top);
         }
-        else if (top == "$") {
-            if (cur == "$") {
-                traceManager_.logSuccess(step, "Analisis exitoso");
-                result.success = true;
-                break;
-            } else {
-                error("$", cur);
-                break;
-            }
-        }
         else {
             stack_.pop();
         }
     }
 
-    if (!result.success && result.errorCount == 0) {
-        result.success = true;
+result.success = parsingComplete && result.errorCount == 0;
+    if (!parsingComplete) {
+        result.errors.push_back("Error: analisis incompleto");
     }
+
+    currentResult_ = nullptr;
 
     traceManager_.flush();
     return result;
@@ -82,12 +91,18 @@ const SymbolManager& LL1Parser::getSymbolManager() const {
     return symbolManager_;
 }
 
-void LL1Parser::init(const std::vector<Token>& tokens, const LL1Table& table, const std::string& start) {
+void LL1Parser::init(const std::vector<Token>& tokens, const LL1Table& table, const std::string& start, const std::vector<std::string>& nonTerminals) {
     while (!stack_.empty()) stack_.pop();
     tokens_ = tokens;
     currentTokenIndex_ = 0;
     ll1Table_ = table;
     startSymbol_ = start;
+
+    nonTerminals_.clear();
+    for (const auto& nt : nonTerminals) {
+        nonTerminals_.insert(nt);
+    }
+
     stack_.push("$");
     stack_.push(start);
     astBuilder_.reset();
@@ -96,11 +111,11 @@ void LL1Parser::init(const std::vector<Token>& tokens, const LL1Table& table, co
 
 bool LL1Parser::isTerminal(const std::string& sym) const {
     if (sym == "$" || sym == "EPS" || sym.empty()) return false;
-    return sym[0] >= 'A' && sym[0] <= 'Z';
+    return nonTerminals_.count(sym) == 0;
 }
 
 bool LL1Parser::isNonTerminal(const std::string& sym) const {
-    return ll1Table_.count(sym) > 0;
+    return nonTerminals_.count(sym) > 0;
 }
 
 std::string LL1Parser::currentSymbol() const {
@@ -134,9 +149,13 @@ void LL1Parser::expandNonTerminal(const std::string& nt) {
     auto prodIt = cell.find(cur);
 
     if (prodIt == cell.end() || !prodIt->second.isValid) {
-        traceManager_.logError(static_cast<int>(currentTokenIndex_), nt, cur, 
+        traceManager_.logError(static_cast<int>(currentTokenIndex_), nt, cur,
             hasMoreTokens() ? tokens_[currentTokenIndex_].line : 0);
         stack_.pop();
+        if (currentResult_) {
+            currentResult_->errors.push_back("Error: esperaba producción para " + nt + " con token " + cur);
+            currentResult_->errorCount++;
+        }
         return;
     }
 

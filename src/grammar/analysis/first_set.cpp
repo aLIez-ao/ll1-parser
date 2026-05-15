@@ -58,8 +58,10 @@ FirstFollowMap FirstSetCalculator::compute(const Grammar& g) {
 
     // Iterate until stable
     bool changed = true;
-    while (changed) {
+    int iterations = 0;
+    while (changed && iterations < 100) {
         changed = false;
+        iterations++;
 
         for (const auto& [nt, prods] : g.rules) {
             for (const auto& prod : prods) {

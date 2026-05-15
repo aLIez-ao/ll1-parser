@@ -71,9 +71,8 @@ namespace Utils {
      * * @param c Carácter a evaluar.
      * @return true si es ;, (, ), {, }.
      */
-    bool isDelimiter(char c) {
-        return c == ';' || c == '(' || c == ')' ||
-               c == '{' || c == '}';
+bool isDelimiter(char c) {
+        return c == ';' || c == ':' || c == '(' || c == ')' || c == '{' || c == '}';
     }
 
     /**
