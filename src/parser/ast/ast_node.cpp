@@ -182,6 +182,31 @@ static bool shouldSkip(ASTNode* node) {
     return false;
 }
 
+// ── Nodos transparentes: sus hijos suben al padre directamente ───────────────
+// L2 y S2 son artefactos de la gramática para evitar recursión izquierda.
+// No tienen significado propio; sus hijos deben aparecer al mismo nivel que
+// los hermanos del padre.
+static bool isTransparent(ASTNode* node) {
+    if (!node) return false;
+    using T = ASTNodeType;
+    // VARIABLE_LIST con un solo hijo VARIABLE_LIST (el "L2 → L" case)
+    // STATEMENT_LIST con un solo hijo STATEMENT_LIST (el "S2 → S" case)
+    return node->type == T::VARIABLE_LIST || node->type == T::STATEMENT_LIST;
+}
+
+// Recolecta hijos visibles, aplanando nodos transparentes recursivamente
+static void collectVisible(ASTNode* node, std::vector<ASTNode*>& out) {
+    for (auto& child : node->children) {
+        ASTNode* c = child.get();
+        if (shouldSkip(c)) continue;
+        if (isTransparent(c)) {
+            collectVisible(c, out);  // los nietos suben
+        } else {
+            out.push_back(c);
+        }
+    }
+}
+
 // ── Impresión recursiva tipo árbol ────────────────────────────────────────────
 void ASTPrinter::printNode(ASTNode* node, const std::string& prefix, bool isLast) {
     if (!node) return;
@@ -201,11 +226,13 @@ void ASTPrinter::printNode(ASTNode* node, const std::string& prefix, bool isLast
 
     output_ += prefix + connector + label + "\n";
 
-    // Filtrar hijos antes de determinar cuál es el último
+    // Aplanar nodos transparentes para que sus hijos aparezcan al mismo nivel
     std::vector<ASTNode*> visibleChildren;
-    for (auto& child : node->children)
-        if (!shouldSkip(child.get()))
-            visibleChildren.push_back(child.get());
+    if (isTransparent(node)) {
+        collectVisible(node, visibleChildren);
+    } else {
+        collectVisible(node, visibleChildren);
+    }
 
     for (size_t i = 0; i < visibleChildren.size(); i++) {
         bool last = (i == visibleChildren.size() - 1);

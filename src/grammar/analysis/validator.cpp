@@ -38,10 +38,6 @@ void Validator::checkLeftRecursion(const Grammar& g, ValidationResult& r) {
 // Convention used: NT names start with an uppercase letter (A-Z).
 // Terminals are lowercase words, digits, or operator symbols.
 // ─────────────────────────────────────────────────────────────────────────────
-static bool looksLikeNT(const std::string& name) {
-    return !name.empty() && std::isupper(static_cast<unsigned char>(name[0]));
-}
-
 void Validator::checkUndefinedSymbols(const Grammar& g, ValidationResult& r) {
     std::set<std::string> seen;
 

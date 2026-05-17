@@ -176,10 +176,13 @@ static void printHelp(const char* name) {
 // ── Buscar archivo de gramática ───────────────────────────────────────────────
 static std::string findGrammarFile(const std::string& hint) {
     if (!hint.empty()) return hint;
-    for (const auto& path : {"grammar.txt",
-                              "src/grammar/grammar.txt",
-                              "../grammar/grammar.txt",
-                              "../../src/grammar/grammar.txt"}) {
+    for (const auto& path : {
+            "grammar.txt",
+            "src/grammar/grammar.txt",
+            "../grammar/grammar.txt",
+            "../src/grammar/grammar.txt",
+            "../../src/grammar/grammar.txt",
+            "../../grammar/grammar.txt"}) {
         std::ifstream f(path);
         if (f.good()) return path;
     }
