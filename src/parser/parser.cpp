@@ -34,6 +34,16 @@ LL1Parser::Result LL1Parser::parse(const std::vector<Token>& tokens,
         std::string top = stack_.top();
         std::string cur = currentSymbol();
 
+        // Procesar marcador de cierre de nodo AST
+        if (top == AST_POP_MARKER) {
+            stack_.pop();
+            if (buildAST_ && astStack_.size() > 1) {
+                astStack_.pop();
+            }
+            step--; // No contar como paso de análisis
+            continue;
+        }
+
         traceManager_.logStep(step, top, cur);
 
         if (top == "$") {
@@ -56,8 +66,9 @@ LL1Parser::Result LL1Parser::parse(const std::vector<Token>& tokens,
                 if (buildAST_ && !astStack_.empty()) {
                     ASTNodeType terminalType = ASTNodeType::UNKNOWN;
                     if (top == "ID") terminalType = ASTNodeType::IDENTIFIER;
-                    else if (top == "NUM") terminalType = ASTNodeType::NUMBER;
+                    else if (top == "NUM" || top == "FNUM") terminalType = ASTNodeType::NUMBER;
                     else if (top == "PLUS") terminalType = ASTNodeType::PLUS;
+                    else if (top == "MINUS") terminalType = ASTNodeType::MINUS;
                     else if (top == "MULT") terminalType = ASTNodeType::MULT;
                     else if (top == "ASSIGN") terminalType = ASTNodeType::ASSIGN;
                     else if (top == "SEMICOLON") terminalType = ASTNodeType::SEMICOLON;
@@ -95,19 +106,16 @@ LL1Parser::Result LL1Parser::parse(const std::vector<Token>& tokens,
         }
     }
 
-result.success = parsingComplete && result.errorCount == 0;
+    result.success = parsingComplete && result.errorCount == 0;
     if (!parsingComplete) {
         result.errors.push_back("Error: analisis incompleto");
     }
 
     if (buildAST_ && result.success) {
-        while (!astStack_.empty()) {
-            auto node = astStack_.top();
-            astStack_.pop();
-            if (astStack_.empty()) {
-                astBuilder_.root = node;
-                break;
-            }
+        // El centinela debe quedar en el fondo del stack con el árbol como hijo
+        while (astStack_.size() > 1) astStack_.pop();
+        if (!astStack_.empty() && !astStack_.top()->children.empty()) {
+            astBuilder_.root = astStack_.top()->children[0];
         }
         result.ast = astBuilder_.root;
     }
@@ -148,8 +156,9 @@ void LL1Parser::init(const std::vector<Token>& tokens, const LL1Table& table, co
 
     if (buildAST_) {
         astBuilder_.reset();
-        auto rootNode = std::make_shared<ASTNode>(ASTNodeType::PROGRAM, start, 0, 0);
-        astStack_.push(rootNode);
+        // Nodo centinela: su primer hijo será la raíz real del AST
+        auto sentinel = std::make_shared<ASTNode>(ASTNodeType::UNKNOWN, "__sentinel__", 0, 0);
+        astStack_.push(sentinel);
     }
 
     symbolManager_ = SymbolManager();
@@ -226,10 +235,19 @@ void LL1Parser::expandNonTerminal(const std::string& nt) {
 
     stack_.pop();
 
-    if (!prod.production.empty() && !(prod.production.size() == 1 && prod.production[0].isEpsilon())) {
+    const bool isEpsilonProd = prod.production.empty() ||
+        (prod.production.size() == 1 && prod.production[0].isEpsilon());
+
+    if (!isEpsilonProd) {
+        // Insertar AST_POP al fondo de esta expansión (se ejecutará último)
+        if (buildAST_) stack_.push(AST_POP_MARKER);
+
         for (int i = static_cast<int>(prod.production.size()) - 1; i >= 0; i--) {
             stack_.push(prod.production[i].name);
         }
+    } else {
+        // Producción epsilon: cerrar el nodo inmediatamente
+        if (buildAST_ && astStack_.size() > 1) astStack_.pop();
     }
 }
 

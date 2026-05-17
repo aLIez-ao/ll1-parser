@@ -73,56 +73,144 @@ void ASTBuilder::reset() {
     root = nullptr;
 }
 
+// ── ANSI color helpers (solo para el printer) ─────────────────────────────────
+namespace ASTColor {
+    static const char* RESET  = "\033[0m";
+    static const char* NT     = "\033[1;36m";   // cyan bold  → no-terminal
+    static const char* ID     = "\033[1;33m";   // yellow     → identificador
+    static const char* NUM    = "\033[1;35m";   // magenta    → número
+    static const char* KW     = "\033[1;34m";   // blue       → palabra clave
+    static const char* OP     = "\033[1;32m";   // green      → operador
+}
+
 // ── AST Visitor Implementation ───────────────────────────────────────────────
 void ASTPrinter::visit(ASTNode* node) {
     if (!node) return;
+    printNode(node, "", true);
+}
+
+void ASTPrinter::visitProgram   (ASTNode* n) { printNode(n, "", true); }
+void ASTPrinter::visitDeclaration(ASTNode* n) { printNode(n, "", true); }
+void ASTPrinter::visitStatement (ASTNode* n) { printNode(n, "", true); }
+void ASTPrinter::visitExpression(ASTNode* n) { printNode(n, "", true); }
+void ASTPrinter::visitTerminal  (ASTNode* n) { printNode(n, "", true); }
+
+// ── Etiqueta visible de un nodo ───────────────────────────────────────────────
+static std::string nodeLabel(ASTNode* node) {
+    using T = ASTNodeType;
+    std::string color, label;
 
     switch (node->type) {
-        case ASTNodeType::PROGRAM:
-        case ASTNodeType::DECLARATIONS:
-        case ASTNodeType::DECLARATION:
-        case ASTNodeType::VARIABLE_LIST:
-        case ASTNodeType::TYPE_SPECIFIER:
-        case ASTNodeType::BLOCK:
-        case ASTNodeType::STATEMENT_LIST:
-        case ASTNodeType::STATEMENT:
-        case ASTNodeType::ASSIGN_STATEMENT:
-        case ASTNodeType::EXPRESSION:
-        case ASTNodeType::EXPRESSION_PRIME:
-        case ASTNodeType::FACTOR:
-            printNode(node, depth_);
-            break;
+        // No-terminales
+        case T::PROGRAM:        color = ASTColor::NT; label = "PROGRAMA";       break;
+        case T::DECLARATIONS:   color = ASTColor::NT; label = "DECLARACIONES";  break;
+        case T::VARIABLE_LIST:  color = ASTColor::NT; label = "LISTA_VAR";      break;
+        case T::TYPE_SPECIFIER: color = ASTColor::NT; label = "TIPO";           break;
+        case T::BLOCK:          color = ASTColor::NT; label = "BLOQUE";         break;
+        case T::STATEMENT_LIST: color = ASTColor::NT; label = "SENTENCIAS";     break;
+        case T::EXPRESSION:     color = ASTColor::NT; label = "EXPRESION";      break;
+        case T::FACTOR:         color = ASTColor::NT; label = "FACTOR";         break;
+
+        // Palabras clave
+        case T::PROGRAM_KW: color = ASTColor::KW; label = "program";  break;
+        case T::VAR_KW:     color = ASTColor::KW; label = "var";      break;
+        case T::BEGIN_KW:   color = ASTColor::KW; label = "begin";    break;
+        case T::END_KW:     color = ASTColor::KW; label = "end";      break;
+        case T::INT_KW:     color = ASTColor::KW; label = "int";      break;
+        case T::FLOAT_KW:   color = ASTColor::KW; label = "float";    break;
+
+        // Identificadores y literales
+        case T::IDENTIFIER: color = ASTColor::ID;  label = "id:" + node->lexeme;   break;
+        case T::NUMBER:     color = ASTColor::NUM; label = "num:" + node->lexeme;  break;
+
+        // Operadores
+        case T::PLUS:   color = ASTColor::OP; label = "+"; break;
+        case T::MINUS:  color = ASTColor::OP; label = "-"; break;
+        case T::MULT:   color = ASTColor::OP; label = "*"; break;
+        case T::ASSIGN: color = ASTColor::OP; label = "="; break;
+
+        // Puntuación: mostrar brevemente
+        case T::SEMICOLON: label = ";"; break;
+        case T::COLON:     label = ":"; break;
+        case T::LPAREN:    label = "("; break;
+        case T::RPAREN:    label = ")"; break;
+
         default:
-            visitTerminal(node);
+            if (!node->lexeme.empty()) label = node->lexeme;
+            else label = "?";
             break;
     }
+
+    if (!color.empty())
+        return color + label + ASTColor::RESET;
+    return label;
 }
 
-void ASTPrinter::visitProgram(ASTNode* node) { printNode(node, depth_); }
-void ASTPrinter::visitDeclaration(ASTNode* node) { printNode(node, depth_); }
-void ASTPrinter::visitStatement(ASTNode* node) { printNode(node, depth_); }
-void ASTPrinter::visitExpression(ASTNode* node) { printNode(node, depth_); }
-
-void ASTPrinter::visitTerminal(ASTNode* node) {
-    for (int i = 0; i < depth_; ++i) output_ += "  ";
-    output_ += node->toString() + "\n";
-}
-
-void ASTPrinter::printNode(ASTNode* node, int depth) {
-    for (int i = 0; i < depth; ++i) output_ += "  ";
-    output_ += node->typeToString();
-    if (!node->lexeme.empty()) {
-        output_ += " '" + node->lexeme + "'";
+// ── Nodos que no aportan semánticamente ──────────────────────────────────────
+static bool shouldSkip(ASTNode* node) {
+    if (!node) return true;
+    using T = ASTNodeType;
+    // Puntuación pura
+    switch (node->type) {
+        case T::SEMICOLON:
+        case T::COLON:
+        case T::LPAREN:
+        case T::RPAREN:
+        case T::PROGRAM_KW:
+        case T::VAR_KW:
+        case T::BEGIN_KW:
+        case T::END_KW:
+            return true;
+        default:
+            break;
     }
-    output_ += "\n";
-
-    depth_ = depth + 1;
-    for (auto& child : node->children) {
-        visit(child.get());
+    // Nodos intermedios de la gramática sin hijos visibles
+    if (node->children.empty()) {
+        switch (node->type) {
+            case T::VARIABLE_LIST:
+            case T::STATEMENT_LIST:
+            case T::EXPRESSION:
+            case T::FACTOR:
+            case T::TYPE_SPECIFIER:
+            case T::UNKNOWN:
+            case T::EPSILON:
+                return true;
+            default:
+                break;
+        }
     }
-    depth_ = depth;
+    return false;
 }
 
-std::string ASTPrinter::getOutput() const {
-    return output_;
+// ── Impresión recursiva tipo árbol ────────────────────────────────────────────
+void ASTPrinter::printNode(ASTNode* node, const std::string& prefix, bool isLast) {
+    if (!node) return;
+    if (shouldSkip(node)) return;
+
+    std::string connector = isLast ? "└── " : "├── ";
+    std::string childPfx  = prefix + (isLast ? "    " : "│   ");
+
+    // Añadir posición de fuente para identificadores y números
+    std::string label = nodeLabel(node);
+    if (node->line > 0 && (node->type == ASTNodeType::IDENTIFIER ||
+                            node->type == ASTNodeType::NUMBER)) {
+        label += ASTColor::RESET;
+        label += " \033[2m(" + std::to_string(node->line) + ":"
+               + std::to_string(node->column) + ")\033[0m";
+    }
+
+    output_ += prefix + connector + label + "\n";
+
+    // Filtrar hijos antes de determinar cuál es el último
+    std::vector<ASTNode*> visibleChildren;
+    for (auto& child : node->children)
+        if (!shouldSkip(child.get()))
+            visibleChildren.push_back(child.get());
+
+    for (size_t i = 0; i < visibleChildren.size(); i++) {
+        bool last = (i == visibleChildren.size() - 1);
+        printNode(visibleChildren[i], childPfx, last);
+    }
 }
+
+std::string ASTPrinter::getOutput() const { return output_; }

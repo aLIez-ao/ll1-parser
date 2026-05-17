@@ -105,7 +105,6 @@ public:
     std::string getOutput() const;
 
 private:
-    void printNode(ASTNode* node, int depth);
+    void printNode(ASTNode* node, const std::string& prefix, bool isLast);
     std::string output_;
-    int depth_ = 0;
 };

@@ -1,44 +1,55 @@
-# Gramática LL(1) - Lenguaje Pascal Simplificado
-# Formato: NoTerminal -> producción
-# Separador de alternativas: |
-# Comentarios تبدأ con #
+# ============================================================
+#  Gramática LL(1) — Lenguaje Pascal Simplificado
+# ============================================================
+#
+#  No-terminales:
+#    P   → Programa completo
+#    D   → Sección de declaraciones
+#    L   → Lista de variables (una o más)
+#    L2  → Continuación de lista (cero o más)
+#    T   → Tipo de dato
+#    B   → Bloque de instrucciones
+#    S   → Sentencia (una)
+#    S2  → Continuación de sentencias (cero o más)
+#    E   → Expresión aritmética
+#    E2  → Continuación de expresión (operadores + y -)
+#    F   → Factor (identificador o número)
+#
+#  Terminales (tokens del léxico):
+#    PROGRAM  VAR  BEGIN  END  INT  FLOAT
+#    ID  NUM  FNUM  ASSIGN  PLUS  MINUS  MULT
+#    SEMICOLON  COLON  LPAREN  RPAREN
+# ============================================================
 
-# Programa principal
-P -> PROGRAM ID SEMICOLON D B
+# Programa: encabezado, declaraciones, bloque
+P  -> PROGRAM ID SEMICOLON D B
 
-# Declaraciones
-D -> VAR L
+# Sección de declaraciones obligatoria
+D  -> VAR L
 
-# Lista de variables
-L -> ID COLON T SEMICOLON L
+# Primera variable declarada
+L  -> ID COLON T SEMICOLON L2
 
-# Producción epsilon (vacia)
-L -> EPS
+# Variables adicionales (o vacío)
+L2 -> L | EPS
 
-# Tipos de datos
-T -> INT
-T -> FLOAT
+# Tipos de datos soportados
+T  -> INT | FLOAT
 
-# Bloque de instrucciones
-B -> BEGIN S END
+# Bloque principal
+B  -> BEGIN S END
 
-# Sentencias
-S -> ID ASSIGN E SEMICOLON S
+# Sentencia de asignación seguida de posibles más sentencias
+S  -> ID ASSIGN E SEMICOLON S2
 
-# Sentencias epsilon
-S -> EPS
+# Más sentencias (o vacío)
+S2 -> S | EPS
 
-# Expresiones
-E -> F E'
+# Expresión: factor seguido de continuación
+E  -> F E2
 
-# Expresiones aritméticas
-E' -> PLUS F E'
-E' -> EPS
+# Continuación con + ó - (o vacío)
+E2 -> PLUS F E2 | MINUS F E2 | EPS
 
-# Factores
-F -> ID
-F -> NUM
-
-# Terminales (tokens del lexer):
-# PROGRAM, ID, SEMICOLON, VAR, COLON, INT, FLOAT
-# BEGIN, END, ASSIGN, PLUS, NUM, EPS
+# Factor: variable, entero o real
+F  -> ID | NUM | FNUM

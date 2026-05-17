@@ -75,6 +75,7 @@ inline std::string tokenToParserSymbol(TokenType type) {
         case TokenType::KW_END:           return "END";
         case TokenType::IDENT:            return "ID";
         case TokenType::LIT_INT:          return "NUM";
+        case TokenType::LIT_FLOAT:        return "FNUM";
         case TokenType::OP_PLUS:          return "PLUS";
         case TokenType::OP_MINUS:         return "MINUS";
         case TokenType::OP_MULTIPLY:      return "MULT";

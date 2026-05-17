@@ -6,6 +6,7 @@ add_library(parser STATIC
     trace/trace_manager.cpp
     trace/trace_formatter.cpp
     symbol_manager.cpp
+    semantic/semantic_analyzer.cpp
 )
 
 target_include_directories(parser PUBLIC

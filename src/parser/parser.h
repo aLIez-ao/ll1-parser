@@ -12,6 +12,9 @@
 #include "trace/trace_manager.h"
 #include "symbol_manager.h"
 
+// Sentinel usado en el stack para marcar el cierre de un nodo AST
+static const std::string AST_POP_MARKER = "$$AST_POP$$";
+
 class LL1Parser {
 public:
     LL1Parser();

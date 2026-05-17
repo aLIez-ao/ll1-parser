@@ -50,8 +50,8 @@ void Validator::checkUndefinedSymbols(const Grammar& g, ValidationResult& r) {
             for (const auto& sym : prod) {
                 if (sym.isEpsilon()) continue;
 
-                // Flag any RHS symbol that looks like a NT but has no rule
-                if (looksLikeNT(sym.name) &&
+                // Un símbolo es no-terminal si está marcado como isNT y no tiene producción
+                if (sym.isNT &&
                     g.rules.find(sym.name) == g.rules.end()) {
                     if (seen.insert(sym.name).second) {
                         std::ostringstream oss;
