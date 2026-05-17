@@ -13,6 +13,7 @@
 #include "grammar/analysis/ll1_table.h"
 #include "grammar/analysis/validator.h"
 #include "parser/parser.h"
+#include "parser/ast/ast_node.h"
 
 using namespace grammar;
 
@@ -149,6 +150,45 @@ end)";
     std::vector<std::string> ntList(g.nonTerminals.begin(), g.nonTerminals.end());
     auto parseResult = parser.parse(lexResult.tokens, ll1Result.table, g.startSymbol, ntList);
 
+    // Validacion semantica
+    if (parseResult.success) {
+        std::set<std::string> declaredVars;
+        bool inDeclarations = false;
+        bool inBlock = false;
+
+        for (size_t i = 0; i < lexResult.tokens.size() - 1; i++) {
+            auto& t = lexResult.tokens[i];
+
+            if (t.toParserSymbol() == "VAR") {
+                inDeclarations = true;
+                inBlock = false;
+            } else if (t.toParserSymbol() == "BEGIN") {
+                inDeclarations = false;
+                inBlock = true;
+            } else if (t.toParserSymbol() == "END") {
+                inBlock = false;
+            }
+
+            if (t.toParserSymbol() == "ID") {
+                if (inDeclarations) {
+                    if (declaredVars.count(t.lexeme) > 0) {
+                        parseResult.errors.push_back("Error semantico: variable '" + t.lexeme + "' ya declarada en linea " + std::to_string(t.line));
+                        parseResult.errorCount++;
+                        parseResult.success = false;
+                    } else {
+                        declaredVars.insert(t.lexeme);
+                    }
+                } else if (inBlock) {
+                    if (declaredVars.count(t.lexeme) == 0) {
+                        parseResult.errors.push_back("Error semantico: variable '" + t.lexeme + "' no declarada en linea " + std::to_string(t.line));
+                        parseResult.errorCount++;
+                        parseResult.success = false;
+                    }
+                }
+            }
+        }
+    }
+
     std::cout << "\n═══════════════════════════════════════════════════════════\n";
     std::cout << "                       RESULTADOS\n";
     std::cout << "═══════════════════════════════════════════════════════════\n";
@@ -164,6 +204,14 @@ end)";
 
     if (trace) {
         std::cout << "\n  Traza guardada en: traza_analisis.txt\n";
+    }
+
+    // Mostrar AST si esta disponible
+    if (parseResult.ast) {
+        std::cout << "\n  AST generado (estructura basica)\n";
+        ASTPrinter printer;
+        printer.visit(parseResult.ast.get());
+        std::cout << printer.getOutput();
     }
 
     std::cout << "\n═══════════════════════════════════════════════════════════\n";

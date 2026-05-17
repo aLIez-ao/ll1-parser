@@ -1,4 +1,5 @@
 #include "parser.h"
+#include "ast/ast_node.h"
 #include <iostream>
 
 LL1Parser::LL1Parser() = default;
@@ -51,6 +52,32 @@ LL1Parser::Result LL1Parser::parse(const std::vector<Token>& tokens,
         else if (isTerminal(top)) {
             if (top == cur) {
                 traceManager_.logMatch(step, top, tokens_[currentTokenIndex_].lexeme);
+
+                if (buildAST_ && !astStack_.empty()) {
+                    ASTNodeType terminalType = ASTNodeType::UNKNOWN;
+                    if (top == "ID") terminalType = ASTNodeType::IDENTIFIER;
+                    else if (top == "NUM") terminalType = ASTNodeType::NUMBER;
+                    else if (top == "PLUS") terminalType = ASTNodeType::PLUS;
+                    else if (top == "MULT") terminalType = ASTNodeType::MULT;
+                    else if (top == "ASSIGN") terminalType = ASTNodeType::ASSIGN;
+                    else if (top == "SEMICOLON") terminalType = ASTNodeType::SEMICOLON;
+                    else if (top == "COLON") terminalType = ASTNodeType::COLON;
+                    else if (top == "PROGRAM") terminalType = ASTNodeType::PROGRAM_KW;
+                    else if (top == "VAR") terminalType = ASTNodeType::VAR_KW;
+                    else if (top == "BEGIN") terminalType = ASTNodeType::BEGIN_KW;
+                    else if (top == "END") terminalType = ASTNodeType::END_KW;
+                    else if (top == "INT") terminalType = ASTNodeType::INT_KW;
+                    else if (top == "FLOAT") terminalType = ASTNodeType::FLOAT_KW;
+
+                    auto terminalNode = std::make_shared<ASTNode>(
+                        terminalType,
+                        tokens_[currentTokenIndex_].lexeme,
+                        tokens_[currentTokenIndex_].line,
+                        tokens_[currentTokenIndex_].column
+                    );
+                    astStack_.top()->addChild(terminalNode);
+                }
+
                 stack_.pop();
                 nextToken();
             } else {
@@ -73,6 +100,18 @@ result.success = parsingComplete && result.errorCount == 0;
         result.errors.push_back("Error: analisis incompleto");
     }
 
+    if (buildAST_ && result.success) {
+        while (!astStack_.empty()) {
+            auto node = astStack_.top();
+            astStack_.pop();
+            if (astStack_.empty()) {
+                astBuilder_.root = node;
+                break;
+            }
+        }
+        result.ast = astBuilder_.root;
+    }
+
     currentResult_ = nullptr;
 
     traceManager_.flush();
@@ -93,6 +132,7 @@ const SymbolManager& LL1Parser::getSymbolManager() const {
 
 void LL1Parser::init(const std::vector<Token>& tokens, const LL1Table& table, const std::string& start, const std::vector<std::string>& nonTerminals) {
     while (!stack_.empty()) stack_.pop();
+    while (!astStack_.empty()) astStack_.pop();
     tokens_ = tokens;
     currentTokenIndex_ = 0;
     ll1Table_ = table;
@@ -105,7 +145,13 @@ void LL1Parser::init(const std::vector<Token>& tokens, const LL1Table& table, co
 
     stack_.push("$");
     stack_.push(start);
-    astBuilder_.reset();
+
+    if (buildAST_) {
+        astBuilder_.reset();
+        auto rootNode = std::make_shared<ASTNode>(ASTNodeType::PROGRAM, start, 0, 0);
+        astStack_.push(rootNode);
+    }
+
     symbolManager_ = SymbolManager();
 }
 
@@ -161,6 +207,22 @@ void LL1Parser::expandNonTerminal(const std::string& nt) {
 
     const auto& prod = prodIt->second;
     traceManager_.logExpand(static_cast<int>(currentTokenIndex_), nt, prod.productionStr);
+
+    if (buildAST_ && !astStack_.empty()) {
+        ASTNodeType nodeType = ASTNodeType::UNKNOWN;
+        if (nt == "P") nodeType = ASTNodeType::PROGRAM;
+        else if (nt == "D") nodeType = ASTNodeType::DECLARATIONS;
+        else if (nt == "L" || nt == "L2") nodeType = ASTNodeType::VARIABLE_LIST;
+        else if (nt == "T") nodeType = ASTNodeType::TYPE_SPECIFIER;
+        else if (nt == "B") nodeType = ASTNodeType::BLOCK;
+        else if (nt == "S" || nt == "S2") nodeType = ASTNodeType::STATEMENT_LIST;
+        else if (nt == "E" || nt == "E2") nodeType = ASTNodeType::EXPRESSION;
+        else if (nt == "F") nodeType = ASTNodeType::FACTOR;
+
+        auto newNode = std::make_shared<ASTNode>(nodeType, nt, 0, 0);
+        astStack_.top()->addChild(newNode);
+        astStack_.push(newNode);
+    }
 
     stack_.pop();
 

@@ -45,6 +45,7 @@ private:
     std::string startSymbol_;
     std::set<std::string> nonTerminals_;
     Result* currentResult_ = nullptr;
+    std::stack<std::shared_ptr<ASTNode>> astStack_;
 
     ASTBuilder astBuilder_;
     TraceManager traceManager_;
