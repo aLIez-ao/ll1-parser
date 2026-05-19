@@ -99,9 +99,24 @@ src/
 
 ### 3.1 Con CMake (recomendado)
 
+Ejecutar solo la primera vez:
+
 ```bash
+# Borrar build/
+rm -rf build
+
 # Desde la raíz del proyecto (donde está src/)
 cmake -S src -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+
+# El binario queda en:
+./build/bin/ll1-parser
+```
+
+Solo compilar cambios si `buil/` ya esta creada:
+
+```bash
+# Desde la raíz del proyecto (donde está src/)
 cmake --build build
 
 # El binario queda en:
