@@ -6,12 +6,37 @@
 
 /**
  * @file utils.h
- * @brief Declaración de funciones auxiliares para el analizador léxico.
- * @details Módulo de utilidades que proporciona funciones puras (sin estado) para 
- * la clasificación de caracteres, manipulación de cadenas de texto y búsqueda 
- * de palabras reservadas. Al ser funciones puras, no modifican el estado del lexer.
+ * @brief Declaración de funciones auxiliares para el analizador léxico
+ * @description
+ * Módulo de utilidades que proporciona funciones puras (sin estado) para:
+ * - Clasificación de caracteres individuales
+ * - Manipulación de cadenas de texto
+ * - Búsqueda y validación de palabras reservadas
+ * - Conversión de caracteres a tipos de token
+ * - Validación de formatos numéricos
+ * 
+ * Estas funciones son usadas por el lexer durante el análisis léxico.
+ * Al ser funciones puras, no modifican ningún estado del lexer ni tienen
+ * efectos secundarios, lo que facilita el testing y la depuración.
+ * 
+ * Las clasificaciones de caracteres siguen las reglas del lenguaje:
+ * - Letras: [a-zA-Z] y guion bajo (_)
+ * - Dígitos: [0-9]
+ * - Alfanuméricos: letras, dígitos o guion bajo
+ * - Operadores: + - * / = > <
+ * - Delimitadores: ; ( ) { }
+ * 
+ * @author Equipo Lexer
+ * @version 1.0
+ * @note Las palabras reservadas del lenguaje son: program, var, int, float,
+ *       begin, end, if, else, while. La comparación es case-insensitive.
  */
 namespace Utils {
+
+    // ============================================================
+    // Constantes de clasificación de caracteres
+    // ============================================================
+    // Los rangos ASCII que definen cada categoría están definidos en utils.cpp
 
     // ---------------------------------------------------------
     //  Clasificación de caracteres

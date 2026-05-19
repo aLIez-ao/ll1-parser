@@ -1,3 +1,27 @@
+/**
+ * @file token.h
+ * @brief Definición de la estructura Token y sus métodos de utilidad
+ * @description
+ * Representa la unidad mínima reconocida por el lexer. Cada vez que el lexer
+ * identifica un lexema válido o inválido, construye y almacena un Token
+ * con toda su información contextual para ser consumido posteriormente por el parser.
+ * 
+ * El token es la estructura fundamental que conecta el análisis léxico con
+ * el análisis sintáctico. Contiene:
+ * - El tipo de token (clasificación léxica)
+ * - El lexema (texto original del código fuente)
+ * - La posición (línea y columna) donde aparece en el código fuente
+ * 
+ * Esta estructura también proporciona métodos de utilidad para:
+ * - Verificar la categoría del token (keyword, literal, operador, etc.)
+ * - Convertir al símbolo que el parser usa para la tabla LL(1)
+ * - Generar representaciones en string para debugging y reportes
+ * 
+ * @author Equipo Lexer
+ * @version 1.0
+ * @see TokenType, tokenToParserSymbol()
+ */
+
 #ifndef TOKEN_H
 #define TOKEN_H
 
@@ -6,24 +30,54 @@
 #include "token_type.h"
 
 /**
- * @file token.h
- * @brief Definición de la estructura Token.
- *
- * @details Representa la unidad mínima reconocida por el lexer.
- * Cada vez que el lexer identifica un lexema válido o inválido,
- * construye y almacena un Token con toda su información contextual
- * para ser consumido posteriormente por el parser.
- */
-
-/**
  * @struct Token
- * @brief Estructura que almacena la información completa de un componente léxico.
+ * @brief Estructura que almacena la información completa de un componente léxico
+ * @description
+ * Cada token representa una unidad atómica del código fuente que el lexer
+ * ha identificado y clasificado. La estructura mantiene:
+ * - type: la clasificación del token (enum TokenType)
+ * - lexeme: el texto exacto como aparece en el código fuente
+ * - line: número de línea (comienza en 1)
+ * - column: número de columna (comienza en 1)
+ * 
+ * El lexer genera una secuencia de tokens que el parser consume para realizar
+ * el análisis sintáctico. Cada token incluye información de posición que es
+ * crucial para reportar errores con precisión.
  */
 struct Token {
-    TokenType type;       ///< Clasificación del token (ej. KW_INT, OP_PLUS).
-    std::string lexeme;   ///< Texto original tal como aparece en el código fuente.
-    int line;             ///< Línea donde fue encontrado (inicia en 1).
-    int column;           ///< Columna donde inicia el lexema (inicia en 1).
+    /**
+     * @brief Clasificación del token según TokenType
+     * @details
+     * Indica la categoría léxica del token: palabra reservada, identificador,
+     * literal, operador, delimitador, o token especial (EOF/UNKNOWN).
+     * El parser usa esta información para decidir las acciones de análisis.
+     */
+    TokenType type;
+    
+    /**
+     * @brief Texto original del token tal como aparece en el código fuente
+     * @details
+     * Contiene el lexema exacto. Por ejemplo, si el token es un identificador
+     * 'x', lexeme será "x". Si es un número '42', lexeme será "42".
+     * Este valor es útil para debugging y para el análisis semántico.
+     */
+    std::string lexeme;
+    
+    /**
+     * @brief Número de línea donde inicia el token (1-indexed)
+     * @details
+     * La primera línea del archivo es la línea 1. Se usa para reportar
+     * errores léxicos, sintácticos y semánticos con la ubicación correcta.
+     */
+    int line;
+    
+    /**
+     * @brief Número de columna donde inicia el token (1-indexed)
+     * @details
+     * La primera columna de cada línea es la columna 1. Combinada con line,
+     * proporciona la posición exacta del token en el código fuente.
+     */
+    int column;
 
     /**
      * @brief Constructor completo para inicializar un token identificado.

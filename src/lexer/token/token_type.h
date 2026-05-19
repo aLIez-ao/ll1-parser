@@ -1,12 +1,97 @@
+/**
+ * @file token_type.h
+ * @brief Definición de tipos de token y funciones de conversión
+ * @description
+ * Este archivo contiene la enumeración TokenType que clasifica todos los
+ * tokens reconocibles por el lexer, así como funciones de conversión
+ * para mapear entre el tipo interno del lexer y los símbolos que el
+ * parser utiliza para consultar la tabla LL(1).
+ * 
+ * La estructura de tokens se divide en las siguientes categorías:
+ * - Palabras reservadas (keywords): program, var, int, float, begin, end, if, else, while
+ * - Literales: números enteros y de punto flotante
+ * - Identificadores: nombres de variables definidos por el usuario
+ * - Operadores: símbolos aritméticos y de asignación
+ * - Delimitadores: signos de puntuación del lenguaje
+ * - Especiales: fin de archivo y tokens desconocidos
+ * 
+ * @author Equipo Lexer
+ * @version 1.0
+ */
+
 #ifndef TOKEN_TYPE_H
 #define TOKEN_TYPE_H
 
 #include <string>
 
-// =============================================================
-// Token reconocidos por el lexer
-// =============================================================
+/**
+ * @enum TokenType
+ * @brief Enumeración que define todos los tipos de tokens reconocibles por el lexer
+ * @description
+ * Cada valor representa una categoría léxica del lenguaje. El lexer usa estos
+ * tipos para clasificar los lexemas encontrados durante el análisis.
+ * 
+ * Categorías de tokens:
+ * - Palabras reservadas (KW_*): palabras clave del lenguaje con significado predefinido
+ * - Literales (LIT_*): valores constantes como números enteros y reales
+ * - Identificadores (IDENT): nombres definidos por el usuario para variables
+ * - Operadores (OP_*): símbolos que representan operaciones aritméticas o de comparación
+ * - Delimitadores (DELIM_*): signos de puntuación que estructuran el código
+ * - Especiales: marcadores especiales como fin de archivo o errores
+ */
 enum class TokenType {
+
+    // ---------------------------------------------------------
+    // Palabras reservadas del lenguaje (Keywords)
+    // ---------------------------------------------------------
+    KW_PROGRAM,     ///< Palabra clave 'program' - encabezado de programa
+    KW_VAR,        ///< Palabra clave 'var' - inicio de sección de declaraciones
+    KW_INT,        ///< Palabra clave 'int' - tipo de dato entero
+    KW_FLOAT,      ///< Palabra clave 'float' - tipo de dato real
+    KW_BEGIN,      ///< Palabra clave 'begin' - inicio de bloque de código
+    KW_END,        ///< Palabra clave 'end' - fin de bloque de código
+    KW_IF,         ///< Palabra clave 'if' - estructura condicional (reservado, no usado)
+    KW_ELSE,       ///< Palabra clave 'else' - parte falsa de condición (reservado, no usado)
+    KW_WHILE,      ///< Palabra clave 'while' - ciclo while (reservado, no usado)
+
+    // ---------------------------------------------------------
+    // Literales numéricos
+    // ---------------------------------------------------------
+    LIT_INT,        ///< Literal entero: secuencia de dígitos (ej: 10, 42, 0)
+    LIT_FLOAT,      ///< Literal de punto flotante: dígitos con punto decimal (ej: 3.14, 2.0)
+
+    // ---------------------------------------------------------
+    // Identificadores
+    // ---------------------------------------------------------
+    IDENT,          ///< Identificador: nombre definido por el usuario (ej: suma, promedio, resultado)
+
+    // ---------------------------------------------------------
+    // Operadores aritméticos y de comparación
+    // ---------------------------------------------------------
+    OP_PLUS,        ///< Operador suma: '+'
+    OP_MINUS,       ///< Operador resta: '-'
+    OP_MULTIPLY,    ///< Operador multiplicación: '*'
+    OP_DIVIDE,      ///< Operador división: '/' (reservado, no implementado en gramática)
+    OP_ASSIGN,      ///< Operador asignación: '='
+    OP_GREATER,     ///< Operador mayor que: '>'
+    OP_LESS,        ///< Operador menor que: '<' (reservado, no usado en gramática)
+
+    // ---------------------------------------------------------
+    // Delimitadores
+    // ---------------------------------------------------------
+    DELIM_SEMICOLON,    ///< Punto y coma: ';'
+    DELIM_COLON,        ///< Dos puntos: ':'
+    DELIM_LPAREN,       ///< Paréntesis izquierdo: '('
+    DELIM_RPAREN,       ///< Paréntesis derecho: ')'
+    DELIM_LBRACE,       ///< Llave izquierda: '{' (reservada, no usada)
+    DELIM_RBRACE,       ///< Llave derecha: '}' (reservada, no usada)
+
+    // ---------------------------------------------------------
+    // Especiales
+    // ---------------------------------------------------------
+    END_OF_FILE,    ///< Marcador de fin de archivo: '$'
+    UNKNOWN         ///< Token no reconocido o error léxico
+};
 
     // ---------------------------------------------------------
     // Palabras reservadas del lenguaje
@@ -61,10 +146,35 @@ enum class TokenType {
 };
 
 
-// =============================================================
-// Mapeo entre tokens del lexer y tokens del parser
-// El parser usa estos nombres para consultar la tabla LL(1)
-// =============================================================
+/**
+ * @brief Convierte un TokenType al símbolo que el parser usa para consultar la tabla LL(1)
+ * @description
+ * Esta función establece la conexión entre el lexer y el parser. El parser no trabaja
+ * con las etiquetas originales del lexer (como "+" o "IDENT"), sino con símbolos
+ * normalizados que coinciden con los nombres de terminal en la gramática LL(1).
+ * 
+ * Mapeo de tokens:
+ * - KW_PROGRAM    -> "PROGRAM"   (palabra clave 'program')
+ * - KW_VAR        -> "VAR"       (palabra clave 'var')
+ * - KW_INT        -> "INT"       (palabra clave 'int')
+ * - KW_FLOAT      -> "FLOAT"     (palabra clave 'float')
+ * - KW_BEGIN      -> "BEGIN"     (palabra clave 'begin')
+ * - KW_END        -> "END"       (palabra clave 'end')
+ * - IDENT         -> "ID"        (identificador de variable)
+ * - LIT_INT       -> "NUM"       (número entero)
+ * - LIT_FLOAT     -> "FNUM"      (número de punto flotante)
+ * - OP_PLUS       -> "PLUS"      (operador suma)
+ * - OP_MINUS      -> "MINUS"     (operador resta)
+ * - OP_MULTIPLY   -> "MULT"      (operador multiplicación)
+ * - OP_ASSIGN     -> "ASSIGN"    (operador asignación)
+ * - END_OF_FILE   -> "$"         (marcador de fin de entrada)
+ * 
+ * @param type Tipo de token del lexer
+ * @return std::string Símbolo que el parser usa para consultar la tabla LL(1)
+ * 
+ * @note Esta función es crítica para la conexión Lexer-Parser. Si se agregan
+ *       nuevos tokens al lexer, deben agregarse aquí para que el parser los reconozca.
+ */
 inline std::string tokenToParserSymbol(TokenType type) {
     switch (type) {
         case TokenType::KW_PROGRAM:       return "PROGRAM";
@@ -90,10 +200,22 @@ inline std::string tokenToParserSymbol(TokenType type) {
 }
 
 
-// =============================================================
-//  Convierte un TokenType a su representación en string
-//  Útil para imprimir tablas y reportes
-// =============================================================
+/**
+ * @brief Convierte un TokenType a su representación en string legible
+ * @description
+ * Función de utilidad para imprimir tablas, reportes y depuración. Convierte
+ * el tipo de token enum a una cadena descriptiva que indica la categoría
+ * del token en un formato entendible por humanos.
+ * 
+ * @param type Tipo de token a convertir
+ * @return std::string Representación legible del tipo de token
+ * 
+ * @note Útil para:
+ *       - Imprimir la tabla de análisis léxico
+ *       - Mostrar errores léxicos en reportes
+ *       - Depuración del lexer
+ *       - Logging del proceso de análisis
+ */
 inline std::string tokenTypeToString(TokenType type) {
     switch (type) {
         // Palabras reservadas
