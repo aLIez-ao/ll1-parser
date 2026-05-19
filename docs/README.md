@@ -201,26 +201,26 @@ g++ -std=c++17 -O2 -I. \
 **Análisis básico:**
 
 ```bash
-./build/bin/ll1-parser --input test/programa.pas
+./build/bin/ll1-parser --input test/programa.txt
 ```
 
 **Mostrar FIRST/FOLLOW y tabla LL(1):**
 
 ```bash
-./build/bin/ll1-parser --input test/programa.pas --sets --table
+./build/bin/ll1-parser --input test/programa.txt --sets --table
 ```
 
 **Generar traza completa:**
 
 ```bash
-./build/bin/ll1-parser --input test/programa.pas --trace
+./build/bin/ll1-parser --input test/programa.txt --trace
 # Genera traza_analisis.txt en el directorio actual
 ```
 
 **Traza en modo DEBUG con gramática personalizada:**
 
 ```bash
-./build/bin/ll1-parser --input test/programa.pas \
+./build/bin/ll1-parser --input test/programa.txt \
              --grammar src/grammar/grammar.txt \
              --trace --trace-level 4
 ```
