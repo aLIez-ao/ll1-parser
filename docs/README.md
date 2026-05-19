@@ -206,7 +206,7 @@ g++ -std=c++17 -O2 -I. \
 
 ```bash
 ./build/bin/ll1-parser --input test/programa.pas \
-             --grammar mi_gramatica.txt \
+             --grammar src/grammar/grammar.txt \
              --trace --trace-level 4
 ```
 
