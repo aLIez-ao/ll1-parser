@@ -76,75 +76,75 @@ lexer/CMakeFiles/lexer.dir/lexer/lexer.cpp.obj: lexer/CMakeFiles/lexer.dir/inclu
 lexer/CMakeFiles/lexer.dir/lexer/lexer.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/lexer/lexer/lexer.cpp
 lexer/CMakeFiles/lexer.dir/lexer/lexer.cpp.obj: lexer/CMakeFiles/lexer.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object lexer/CMakeFiles/lexer.dir/lexer/lexer.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lexer/CMakeFiles/lexer.dir/lexer/lexer.cpp.obj -MF CMakeFiles\lexer.dir\lexer\lexer.cpp.obj.d -o CMakeFiles\lexer.dir\lexer\lexer.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\lexer\lexer.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lexer/CMakeFiles/lexer.dir/lexer/lexer.cpp.obj -MF CMakeFiles\lexer.dir\lexer\lexer.cpp.obj.d -o CMakeFiles\lexer.dir\lexer\lexer.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\lexer\lexer.cpp
 
 lexer/CMakeFiles/lexer.dir/lexer/lexer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lexer.dir/lexer/lexer.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\lexer\lexer.cpp > CMakeFiles\lexer.dir\lexer\lexer.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\lexer\lexer.cpp > CMakeFiles\lexer.dir\lexer\lexer.cpp.i
 
 lexer/CMakeFiles/lexer.dir/lexer/lexer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lexer.dir/lexer/lexer.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\lexer\lexer.cpp -o CMakeFiles\lexer.dir\lexer\lexer.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\lexer\lexer.cpp -o CMakeFiles\lexer.dir\lexer\lexer.cpp.s
 
 lexer/CMakeFiles/lexer.dir/token/token.cpp.obj: lexer/CMakeFiles/lexer.dir/flags.make
 lexer/CMakeFiles/lexer.dir/token/token.cpp.obj: lexer/CMakeFiles/lexer.dir/includes_CXX.rsp
 lexer/CMakeFiles/lexer.dir/token/token.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/lexer/token/token.cpp
 lexer/CMakeFiles/lexer.dir/token/token.cpp.obj: lexer/CMakeFiles/lexer.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object lexer/CMakeFiles/lexer.dir/token/token.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lexer/CMakeFiles/lexer.dir/token/token.cpp.obj -MF CMakeFiles\lexer.dir\token\token.cpp.obj.d -o CMakeFiles\lexer.dir\token\token.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\token\token.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lexer/CMakeFiles/lexer.dir/token/token.cpp.obj -MF CMakeFiles\lexer.dir\token\token.cpp.obj.d -o CMakeFiles\lexer.dir\token\token.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\token\token.cpp
 
 lexer/CMakeFiles/lexer.dir/token/token.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lexer.dir/token/token.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\token\token.cpp > CMakeFiles\lexer.dir\token\token.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\token\token.cpp > CMakeFiles\lexer.dir\token\token.cpp.i
 
 lexer/CMakeFiles/lexer.dir/token/token.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lexer.dir/token/token.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\token\token.cpp -o CMakeFiles\lexer.dir\token\token.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\token\token.cpp -o CMakeFiles\lexer.dir\token\token.cpp.s
 
 lexer/CMakeFiles/lexer.dir/utils/utils.cpp.obj: lexer/CMakeFiles/lexer.dir/flags.make
 lexer/CMakeFiles/lexer.dir/utils/utils.cpp.obj: lexer/CMakeFiles/lexer.dir/includes_CXX.rsp
 lexer/CMakeFiles/lexer.dir/utils/utils.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/lexer/utils/utils.cpp
 lexer/CMakeFiles/lexer.dir/utils/utils.cpp.obj: lexer/CMakeFiles/lexer.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object lexer/CMakeFiles/lexer.dir/utils/utils.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lexer/CMakeFiles/lexer.dir/utils/utils.cpp.obj -MF CMakeFiles\lexer.dir\utils\utils.cpp.obj.d -o CMakeFiles\lexer.dir\utils\utils.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\utils\utils.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lexer/CMakeFiles/lexer.dir/utils/utils.cpp.obj -MF CMakeFiles\lexer.dir\utils\utils.cpp.obj.d -o CMakeFiles\lexer.dir\utils\utils.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\utils\utils.cpp
 
 lexer/CMakeFiles/lexer.dir/utils/utils.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lexer.dir/utils/utils.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\utils\utils.cpp > CMakeFiles\lexer.dir\utils\utils.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\utils\utils.cpp > CMakeFiles\lexer.dir\utils\utils.cpp.i
 
 lexer/CMakeFiles/lexer.dir/utils/utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lexer.dir/utils/utils.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\utils\utils.cpp -o CMakeFiles\lexer.dir\utils\utils.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\utils\utils.cpp -o CMakeFiles\lexer.dir\utils\utils.cpp.s
 
 lexer/CMakeFiles/lexer.dir/symbol_table/symbol_table.cpp.obj: lexer/CMakeFiles/lexer.dir/flags.make
 lexer/CMakeFiles/lexer.dir/symbol_table/symbol_table.cpp.obj: lexer/CMakeFiles/lexer.dir/includes_CXX.rsp
 lexer/CMakeFiles/lexer.dir/symbol_table/symbol_table.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/lexer/symbol_table/symbol_table.cpp
 lexer/CMakeFiles/lexer.dir/symbol_table/symbol_table.cpp.obj: lexer/CMakeFiles/lexer.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object lexer/CMakeFiles/lexer.dir/symbol_table/symbol_table.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lexer/CMakeFiles/lexer.dir/symbol_table/symbol_table.cpp.obj -MF CMakeFiles\lexer.dir\symbol_table\symbol_table.cpp.obj.d -o CMakeFiles\lexer.dir\symbol_table\symbol_table.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\symbol_table\symbol_table.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lexer/CMakeFiles/lexer.dir/symbol_table/symbol_table.cpp.obj -MF CMakeFiles\lexer.dir\symbol_table\symbol_table.cpp.obj.d -o CMakeFiles\lexer.dir\symbol_table\symbol_table.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\symbol_table\symbol_table.cpp
 
 lexer/CMakeFiles/lexer.dir/symbol_table/symbol_table.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lexer.dir/symbol_table/symbol_table.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\symbol_table\symbol_table.cpp > CMakeFiles\lexer.dir\symbol_table\symbol_table.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\symbol_table\symbol_table.cpp > CMakeFiles\lexer.dir\symbol_table\symbol_table.cpp.i
 
 lexer/CMakeFiles/lexer.dir/symbol_table/symbol_table.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lexer.dir/symbol_table/symbol_table.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\symbol_table\symbol_table.cpp -o CMakeFiles\lexer.dir\symbol_table\symbol_table.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\symbol_table\symbol_table.cpp -o CMakeFiles\lexer.dir\symbol_table\symbol_table.cpp.s
 
 lexer/CMakeFiles/lexer.dir/error_handler/error_handler.cpp.obj: lexer/CMakeFiles/lexer.dir/flags.make
 lexer/CMakeFiles/lexer.dir/error_handler/error_handler.cpp.obj: lexer/CMakeFiles/lexer.dir/includes_CXX.rsp
 lexer/CMakeFiles/lexer.dir/error_handler/error_handler.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/lexer/error_handler/error_handler.cpp
 lexer/CMakeFiles/lexer.dir/error_handler/error_handler.cpp.obj: lexer/CMakeFiles/lexer.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object lexer/CMakeFiles/lexer.dir/error_handler/error_handler.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lexer/CMakeFiles/lexer.dir/error_handler/error_handler.cpp.obj -MF CMakeFiles\lexer.dir\error_handler\error_handler.cpp.obj.d -o CMakeFiles\lexer.dir\error_handler\error_handler.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\error_handler\error_handler.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT lexer/CMakeFiles/lexer.dir/error_handler/error_handler.cpp.obj -MF CMakeFiles\lexer.dir\error_handler\error_handler.cpp.obj.d -o CMakeFiles\lexer.dir\error_handler\error_handler.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\error_handler\error_handler.cpp
 
 lexer/CMakeFiles/lexer.dir/error_handler/error_handler.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/lexer.dir/error_handler/error_handler.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\error_handler\error_handler.cpp > CMakeFiles\lexer.dir\error_handler\error_handler.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\error_handler\error_handler.cpp > CMakeFiles\lexer.dir\error_handler\error_handler.cpp.i
 
 lexer/CMakeFiles/lexer.dir/error_handler/error_handler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/lexer.dir/error_handler/error_handler.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\error_handler\error_handler.cpp -o CMakeFiles\lexer.dir\error_handler\error_handler.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\lexer && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\lexer\error_handler\error_handler.cpp -o CMakeFiles\lexer.dir\error_handler\error_handler.cpp.s
 
 # Object files for target lexer
 lexer_OBJECTS = \

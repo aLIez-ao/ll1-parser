@@ -1,3 +1,37 @@
+/**
+ * @file main.cpp
+ * @brief Punto de entrada y orquestador del compilador LL(1)
+ * @description
+ * Este archivo contiene la función main() que coordina todas las fases
+ * del análisis de compiladores:
+ * 
+ * [1] Lectura del código fuente
+ * [2] Análisis léxico (Lexer)
+ * [3] Carga y parseo de la gramática
+ * [4] Validación de la gramática
+ * [5] Cálculo de conjuntos FIRST y FOLLOW
+ * [6] Construcción de la tabla LL(1)
+ * [7] Análisis sintáctico (Parser LL(1))
+ * [8] Análisis semántico
+ * [9] Tabla de símbolos
+ * [10] Construcción y visualización del AST
+ * 
+ * El programa acepta argumentos de línea de comandos para:
+ * - Especificar el archivo de entrada (--input)
+ * - Especificar archivo de gramática (--grammar)
+ * - Mostrar conjuntos FIRST/FOLLOW (--sets)
+ * - Mostrar tabla LL(1) (--table)
+ * - Generar traza de análisis (--trace)
+ * - Nivel de detalle de la traza (--trace-level)
+ * 
+ * Uso:
+ *   ./ll1-parser --input <archivo> [--sets] [--table] [--trace]
+ * 
+ * @author Equipo Compiler
+ * @version 2.0
+ * @see Lexer, LL1Parser, SemanticAnalyzer
+ */
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -19,10 +53,17 @@
 
 using namespace grammar;
 
-// ═══════════════════════════════════════════════════════════════════════════
-//  Helpers de visualización
-// ═══════════════════════════════════════════════════════════════════════════
+/**
+ * @name Funciones auxiliares de visualización
+ * @brief Funciones para formatear la salida en consola
+ * @{
+ */
 
+/**
+ * @brief Imprime un separador horizontal de línea
+ * @param c Carácter de repetición (default: ─)
+ * @param len Longitud del separador (default: 61)
+ */
 static void printSeparator(const std::string& c = "─", int len = 61) {
     std::string line;
     line.reserve(len * c.size());

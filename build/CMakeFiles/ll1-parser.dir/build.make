@@ -76,15 +76,15 @@ CMakeFiles/ll1-parser.dir/main.cpp.obj: CMakeFiles/ll1-parser.dir/includes_CXX.r
 CMakeFiles/ll1-parser.dir/main.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/main.cpp
 CMakeFiles/ll1-parser.dir/main.cpp.obj: CMakeFiles/ll1-parser.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ll1-parser.dir/main.cpp.obj"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ll1-parser.dir/main.cpp.obj -MF CMakeFiles\ll1-parser.dir\main.cpp.obj.d -o CMakeFiles\ll1-parser.dir\main.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\main.cpp
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ll1-parser.dir/main.cpp.obj -MF CMakeFiles\ll1-parser.dir\main.cpp.obj.d -o CMakeFiles\ll1-parser.dir\main.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\main.cpp
 
 CMakeFiles/ll1-parser.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/ll1-parser.dir/main.cpp.i"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\main.cpp > CMakeFiles\ll1-parser.dir\main.cpp.i
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\main.cpp > CMakeFiles\ll1-parser.dir\main.cpp.i
 
 CMakeFiles/ll1-parser.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/ll1-parser.dir/main.cpp.s"
-	C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\main.cpp -o CMakeFiles\ll1-parser.dir\main.cpp.s
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\main.cpp -o CMakeFiles\ll1-parser.dir\main.cpp.s
 
 # Object files for target ll1-parser
 ll1__parser_OBJECTS = \

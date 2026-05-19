@@ -76,90 +76,90 @@ grammar/CMakeFiles/grammar.dir/core/grammar.cpp.obj: grammar/CMakeFiles/grammar.
 grammar/CMakeFiles/grammar.dir/core/grammar.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/grammar/core/grammar.cpp
 grammar/CMakeFiles/grammar.dir/core/grammar.cpp.obj: grammar/CMakeFiles/grammar.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object grammar/CMakeFiles/grammar.dir/core/grammar.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT grammar/CMakeFiles/grammar.dir/core/grammar.cpp.obj -MF CMakeFiles\grammar.dir\core\grammar.cpp.obj.d -o CMakeFiles\grammar.dir\core\grammar.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\core\grammar.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT grammar/CMakeFiles/grammar.dir/core/grammar.cpp.obj -MF CMakeFiles\grammar.dir\core\grammar.cpp.obj.d -o CMakeFiles\grammar.dir\core\grammar.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\core\grammar.cpp
 
 grammar/CMakeFiles/grammar.dir/core/grammar.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/grammar.dir/core/grammar.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\core\grammar.cpp > CMakeFiles\grammar.dir\core\grammar.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\core\grammar.cpp > CMakeFiles\grammar.dir\core\grammar.cpp.i
 
 grammar/CMakeFiles/grammar.dir/core/grammar.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/grammar.dir/core/grammar.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\core\grammar.cpp -o CMakeFiles\grammar.dir\core\grammar.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\core\grammar.cpp -o CMakeFiles\grammar.dir\core\grammar.cpp.s
 
 grammar/CMakeFiles/grammar.dir/io/grammar_parser.cpp.obj: grammar/CMakeFiles/grammar.dir/flags.make
 grammar/CMakeFiles/grammar.dir/io/grammar_parser.cpp.obj: grammar/CMakeFiles/grammar.dir/includes_CXX.rsp
 grammar/CMakeFiles/grammar.dir/io/grammar_parser.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/grammar/io/grammar_parser.cpp
 grammar/CMakeFiles/grammar.dir/io/grammar_parser.cpp.obj: grammar/CMakeFiles/grammar.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object grammar/CMakeFiles/grammar.dir/io/grammar_parser.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT grammar/CMakeFiles/grammar.dir/io/grammar_parser.cpp.obj -MF CMakeFiles\grammar.dir\io\grammar_parser.cpp.obj.d -o CMakeFiles\grammar.dir\io\grammar_parser.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\io\grammar_parser.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT grammar/CMakeFiles/grammar.dir/io/grammar_parser.cpp.obj -MF CMakeFiles\grammar.dir\io\grammar_parser.cpp.obj.d -o CMakeFiles\grammar.dir\io\grammar_parser.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\io\grammar_parser.cpp
 
 grammar/CMakeFiles/grammar.dir/io/grammar_parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/grammar.dir/io/grammar_parser.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\io\grammar_parser.cpp > CMakeFiles\grammar.dir\io\grammar_parser.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\io\grammar_parser.cpp > CMakeFiles\grammar.dir\io\grammar_parser.cpp.i
 
 grammar/CMakeFiles/grammar.dir/io/grammar_parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/grammar.dir/io/grammar_parser.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\io\grammar_parser.cpp -o CMakeFiles\grammar.dir\io\grammar_parser.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\io\grammar_parser.cpp -o CMakeFiles\grammar.dir\io\grammar_parser.cpp.s
 
 grammar/CMakeFiles/grammar.dir/analysis/validator.cpp.obj: grammar/CMakeFiles/grammar.dir/flags.make
 grammar/CMakeFiles/grammar.dir/analysis/validator.cpp.obj: grammar/CMakeFiles/grammar.dir/includes_CXX.rsp
 grammar/CMakeFiles/grammar.dir/analysis/validator.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/grammar/analysis/validator.cpp
 grammar/CMakeFiles/grammar.dir/analysis/validator.cpp.obj: grammar/CMakeFiles/grammar.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object grammar/CMakeFiles/grammar.dir/analysis/validator.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT grammar/CMakeFiles/grammar.dir/analysis/validator.cpp.obj -MF CMakeFiles\grammar.dir\analysis\validator.cpp.obj.d -o CMakeFiles\grammar.dir\analysis\validator.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\validator.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT grammar/CMakeFiles/grammar.dir/analysis/validator.cpp.obj -MF CMakeFiles\grammar.dir\analysis\validator.cpp.obj.d -o CMakeFiles\grammar.dir\analysis\validator.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\validator.cpp
 
 grammar/CMakeFiles/grammar.dir/analysis/validator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/grammar.dir/analysis/validator.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\validator.cpp > CMakeFiles\grammar.dir\analysis\validator.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\validator.cpp > CMakeFiles\grammar.dir\analysis\validator.cpp.i
 
 grammar/CMakeFiles/grammar.dir/analysis/validator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/grammar.dir/analysis/validator.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\validator.cpp -o CMakeFiles\grammar.dir\analysis\validator.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\validator.cpp -o CMakeFiles\grammar.dir\analysis\validator.cpp.s
 
 grammar/CMakeFiles/grammar.dir/analysis/first_set.cpp.obj: grammar/CMakeFiles/grammar.dir/flags.make
 grammar/CMakeFiles/grammar.dir/analysis/first_set.cpp.obj: grammar/CMakeFiles/grammar.dir/includes_CXX.rsp
 grammar/CMakeFiles/grammar.dir/analysis/first_set.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/grammar/analysis/first_set.cpp
 grammar/CMakeFiles/grammar.dir/analysis/first_set.cpp.obj: grammar/CMakeFiles/grammar.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object grammar/CMakeFiles/grammar.dir/analysis/first_set.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT grammar/CMakeFiles/grammar.dir/analysis/first_set.cpp.obj -MF CMakeFiles\grammar.dir\analysis\first_set.cpp.obj.d -o CMakeFiles\grammar.dir\analysis\first_set.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\first_set.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT grammar/CMakeFiles/grammar.dir/analysis/first_set.cpp.obj -MF CMakeFiles\grammar.dir\analysis\first_set.cpp.obj.d -o CMakeFiles\grammar.dir\analysis\first_set.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\first_set.cpp
 
 grammar/CMakeFiles/grammar.dir/analysis/first_set.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/grammar.dir/analysis/first_set.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\first_set.cpp > CMakeFiles\grammar.dir\analysis\first_set.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\first_set.cpp > CMakeFiles\grammar.dir\analysis\first_set.cpp.i
 
 grammar/CMakeFiles/grammar.dir/analysis/first_set.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/grammar.dir/analysis/first_set.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\first_set.cpp -o CMakeFiles\grammar.dir\analysis\first_set.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\first_set.cpp -o CMakeFiles\grammar.dir\analysis\first_set.cpp.s
 
 grammar/CMakeFiles/grammar.dir/analysis/follow_set.cpp.obj: grammar/CMakeFiles/grammar.dir/flags.make
 grammar/CMakeFiles/grammar.dir/analysis/follow_set.cpp.obj: grammar/CMakeFiles/grammar.dir/includes_CXX.rsp
 grammar/CMakeFiles/grammar.dir/analysis/follow_set.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/grammar/analysis/follow_set.cpp
 grammar/CMakeFiles/grammar.dir/analysis/follow_set.cpp.obj: grammar/CMakeFiles/grammar.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object grammar/CMakeFiles/grammar.dir/analysis/follow_set.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT grammar/CMakeFiles/grammar.dir/analysis/follow_set.cpp.obj -MF CMakeFiles\grammar.dir\analysis\follow_set.cpp.obj.d -o CMakeFiles\grammar.dir\analysis\follow_set.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\follow_set.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT grammar/CMakeFiles/grammar.dir/analysis/follow_set.cpp.obj -MF CMakeFiles\grammar.dir\analysis\follow_set.cpp.obj.d -o CMakeFiles\grammar.dir\analysis\follow_set.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\follow_set.cpp
 
 grammar/CMakeFiles/grammar.dir/analysis/follow_set.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/grammar.dir/analysis/follow_set.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\follow_set.cpp > CMakeFiles\grammar.dir\analysis\follow_set.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\follow_set.cpp > CMakeFiles\grammar.dir\analysis\follow_set.cpp.i
 
 grammar/CMakeFiles/grammar.dir/analysis/follow_set.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/grammar.dir/analysis/follow_set.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\follow_set.cpp -o CMakeFiles\grammar.dir\analysis\follow_set.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\follow_set.cpp -o CMakeFiles\grammar.dir\analysis\follow_set.cpp.s
 
 grammar/CMakeFiles/grammar.dir/analysis/ll1_table.cpp.obj: grammar/CMakeFiles/grammar.dir/flags.make
 grammar/CMakeFiles/grammar.dir/analysis/ll1_table.cpp.obj: grammar/CMakeFiles/grammar.dir/includes_CXX.rsp
 grammar/CMakeFiles/grammar.dir/analysis/ll1_table.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/grammar/analysis/ll1_table.cpp
 grammar/CMakeFiles/grammar.dir/analysis/ll1_table.cpp.obj: grammar/CMakeFiles/grammar.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object grammar/CMakeFiles/grammar.dir/analysis/ll1_table.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT grammar/CMakeFiles/grammar.dir/analysis/ll1_table.cpp.obj -MF CMakeFiles\grammar.dir\analysis\ll1_table.cpp.obj.d -o CMakeFiles\grammar.dir\analysis\ll1_table.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\ll1_table.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT grammar/CMakeFiles/grammar.dir/analysis/ll1_table.cpp.obj -MF CMakeFiles\grammar.dir\analysis\ll1_table.cpp.obj.d -o CMakeFiles\grammar.dir\analysis\ll1_table.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\ll1_table.cpp
 
 grammar/CMakeFiles/grammar.dir/analysis/ll1_table.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/grammar.dir/analysis/ll1_table.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\ll1_table.cpp > CMakeFiles\grammar.dir\analysis\ll1_table.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\ll1_table.cpp > CMakeFiles\grammar.dir\analysis\ll1_table.cpp.i
 
 grammar/CMakeFiles/grammar.dir/analysis/ll1_table.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/grammar.dir/analysis/ll1_table.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\ll1_table.cpp -o CMakeFiles\grammar.dir\analysis\ll1_table.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\grammar && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\grammar\analysis\ll1_table.cpp -o CMakeFiles\grammar.dir\analysis\ll1_table.cpp.s
 
 # Object files for target grammar
 grammar_OBJECTS = \

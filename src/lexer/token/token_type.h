@@ -93,58 +93,6 @@ enum class TokenType {
     UNKNOWN         ///< Token no reconocido o error léxico
 };
 
-    // ---------------------------------------------------------
-    // Palabras reservadas del lenguaje
-    // ---------------------------------------------------------
-    KW_PROGRAM,     // program
-    KW_VAR,         // var
-    KW_INT,         // int
-    KW_FLOAT,       // float
-    KW_BEGIN,       // begin
-    KW_END,         // end
-    KW_IF,          // if
-    KW_ELSE,        // else
-    KW_WHILE,       // while
-
-    // ---------------------------------------------------------
-    // Literales
-    // ---------------------------------------------------------
-    LIT_INT,        // ej: 10, 42, 0
-    LIT_FLOAT,      // ej: 3.14, 2.0
-
-    // ---------------------------------------------------------
-    // Identificadores
-    // ---------------------------------------------------------
-    IDENT,          // ej: suma, promedio, resultado
-
-    // ---------------------------------------------------------
-    // Operadores
-    // ---------------------------------------------------------
-    OP_PLUS,        // +
-    OP_MINUS,       // -
-    OP_MULTIPLY,    // *
-    OP_DIVIDE,      // /
-    OP_ASSIGN,      // =
-    OP_GREATER,     // >
-    OP_LESS,        // <
-
-    // ---------------------------------------------------------
-    // Delimitadores
-    // ---------------------------------------------------------
-    DELIM_SEMICOLON,    // ;
-    DELIM_COLON,        // :
-    DELIM_LPAREN,       // (
-    DELIM_RPAREN,       // )
-    DELIM_LBRACE,       // {
-    DELIM_RBRACE,       // }
-
-    // ---------------------------------------------------------
-    // Especiales
-    // ---------------------------------------------------------
-    END_OF_FILE,    // fin de la cadena de entrada
-    UNKNOWN         // token no reconocido / error léxico
-};
-
 
 /**
  * @brief Convierte un TokenType al símbolo que el parser usa para consultar la tabla LL(1)

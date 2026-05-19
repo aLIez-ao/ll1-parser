@@ -1,22 +1,85 @@
+/**
+ * @file parser.cpp
+ * @brief Implementación del parser LL(1) de pila no recursiva
+ * @description
+ * Este archivo contiene la implementación completa del analizador sintáctico
+ * descendente LL(1). El parser utiliza una pila explícita para simular
+ * el proceso de parsing sin usar recursión.
+ * 
+ * El algoritmo principal:
+ * 1. Inicialización: apilar $ (fondo) y símbolo inicial
+ * 2. Loop principal: mientras la pila no esté vacía
+ *    - Procesar símbolo del tope de la pila
+ *    - Comparar con token actual de la entrada
+ *    - Ejecutar acción correspondiente (MATCH, EXPAND, ERROR)
+ * 3. Verificación final: si token = $ y pila = $, éxito
+ * 
+ * Durante el parsing también se construye el AST en paralelo,
+ * agregando nodos a medida que se procesan las producciones.
+ * 
+ * @author Equipo Parser
+ * @version 1.0
+ * @see parser.h, ASTNode, LL1Table
+ */
+
 #include "parser.h"
 #include "ast/ast_node.h"
 #include <iostream>
 
+/**
+ * @brief Constructor por defecto
+ * @details Inicializa el parser con valores predeterminados
+ */
 LL1Parser::LL1Parser() = default;
+
+/**
+ * @brief Destructor por defecto
+ */
 LL1Parser::~LL1Parser() = default;
 
+/**
+ * @brief Establece el nivel de detalle de la traza
+ * @param level Nivel de traceo (0=NONE, 1=MINIMAL, 2=NORMAL, 3=VERBOSE, 4=DEBUG)
+ */
 void LL1Parser::setTraceLevel(TraceLevel level) {
     traceManager_.setLevel(level);
 }
 
+/**
+ * @brief Define el archivo de salida para la traza
+ * @param filename Ruta del archivo (por defecto: traza_analisis.txt)
+ */
 void LL1Parser::setTraceFile(const std::string& filename) {
     traceManager_.setOutputFile(filename);
 }
 
+/**
+ * @brief Habilita o deshabilita la construcción del AST
+ * @param enable true = construir AST, false = solo análisis sintáctico
+ */
 void LL1Parser::enableASTBuilding(bool enable) {
     buildAST_ = enable;
 }
 
+/**
+ * @brief Método principal de parsing
+ * @description
+ * Ejecuta el algoritmo de parsing LL(1) con pila no recursiva.
+ * Este es el método principal que el usuario llama para analizar tokens.
+ * 
+ * Proceso:
+ * 1. Inicializa el parser con los datos de entrada
+ * 2. Apila $ y el símbolo inicial
+ * 3. Loop principal: procesa cada símbolo de la pila
+ * 4. Construye el AST en paralelo si está habilitado
+ * 5. Retorna el resultado con errores y AST (si aplica)
+ * 
+ * @param tokens Lista de tokens del lexer
+ * @param ll1Table Tabla LL(1) precalculada
+ * @param startSymbol Símbolo inicial (ej: "P")
+ * @param nonTerminals Lista de todos los no-terminales
+ * @return Result Estructura con success, ast, errors, errorCount
+ */
 LL1Parser::Result LL1Parser::parse(const std::vector<Token>& tokens,
                                       const LL1Table& ll1Table,
                                       const std::string& startSymbol,
@@ -27,8 +90,12 @@ LL1Parser::Result LL1Parser::parse(const std::vector<Token>& tokens,
 
     traceManager_.logInitialization(startSymbol, static_cast<int>(tokens.size()));
 
-    // Helper: convierte la pila a string (fondo→tope, separado por espacios)
-    // Copia la pila para no modificarla
+    /**
+     * @brief Lambda auxiliar: convierte la pila a string para logging
+     * @details Copia la pila (sin modificar la original) y la convierte
+     *          a formato "fondo → tope" separado por espacios.
+     *          Los marcadores AST_POP_MARKER se ocultan en la traza.
+     */
     auto stackToStr = [](std::stack<std::string> s) -> std::string {
         std::vector<std::string> v;
         while (!s.empty()) { v.push_back(s.top()); s.pop(); }

@@ -76,120 +76,120 @@ parser/CMakeFiles/parser.dir/parser.cpp.obj: parser/CMakeFiles/parser.dir/includ
 parser/CMakeFiles/parser.dir/parser.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/parser/parser.cpp
 parser/CMakeFiles/parser.dir/parser.cpp.obj: parser/CMakeFiles/parser.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object parser/CMakeFiles/parser.dir/parser.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT parser/CMakeFiles/parser.dir/parser.cpp.obj -MF CMakeFiles\parser.dir\parser.cpp.obj.d -o CMakeFiles\parser.dir\parser.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\parser.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT parser/CMakeFiles/parser.dir/parser.cpp.obj -MF CMakeFiles\parser.dir\parser.cpp.obj.d -o CMakeFiles\parser.dir\parser.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\parser.cpp
 
 parser/CMakeFiles/parser.dir/parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/parser.dir/parser.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\parser.cpp > CMakeFiles\parser.dir\parser.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\parser.cpp > CMakeFiles\parser.dir\parser.cpp.i
 
 parser/CMakeFiles/parser.dir/parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/parser.dir/parser.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\parser.cpp -o CMakeFiles\parser.dir\parser.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\parser.cpp -o CMakeFiles\parser.dir\parser.cpp.s
 
 parser/CMakeFiles/parser.dir/ast/ast_node.cpp.obj: parser/CMakeFiles/parser.dir/flags.make
 parser/CMakeFiles/parser.dir/ast/ast_node.cpp.obj: parser/CMakeFiles/parser.dir/includes_CXX.rsp
 parser/CMakeFiles/parser.dir/ast/ast_node.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/parser/ast/ast_node.cpp
 parser/CMakeFiles/parser.dir/ast/ast_node.cpp.obj: parser/CMakeFiles/parser.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object parser/CMakeFiles/parser.dir/ast/ast_node.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT parser/CMakeFiles/parser.dir/ast/ast_node.cpp.obj -MF CMakeFiles\parser.dir\ast\ast_node.cpp.obj.d -o CMakeFiles\parser.dir\ast\ast_node.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_node.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT parser/CMakeFiles/parser.dir/ast/ast_node.cpp.obj -MF CMakeFiles\parser.dir\ast\ast_node.cpp.obj.d -o CMakeFiles\parser.dir\ast\ast_node.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_node.cpp
 
 parser/CMakeFiles/parser.dir/ast/ast_node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/parser.dir/ast/ast_node.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_node.cpp > CMakeFiles\parser.dir\ast\ast_node.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_node.cpp > CMakeFiles\parser.dir\ast\ast_node.cpp.i
 
 parser/CMakeFiles/parser.dir/ast/ast_node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/parser.dir/ast/ast_node.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_node.cpp -o CMakeFiles\parser.dir\ast\ast_node.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_node.cpp -o CMakeFiles\parser.dir\ast\ast_node.cpp.s
 
 parser/CMakeFiles/parser.dir/ast/ast_builder.cpp.obj: parser/CMakeFiles/parser.dir/flags.make
 parser/CMakeFiles/parser.dir/ast/ast_builder.cpp.obj: parser/CMakeFiles/parser.dir/includes_CXX.rsp
 parser/CMakeFiles/parser.dir/ast/ast_builder.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/parser/ast/ast_builder.cpp
 parser/CMakeFiles/parser.dir/ast/ast_builder.cpp.obj: parser/CMakeFiles/parser.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object parser/CMakeFiles/parser.dir/ast/ast_builder.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT parser/CMakeFiles/parser.dir/ast/ast_builder.cpp.obj -MF CMakeFiles\parser.dir\ast\ast_builder.cpp.obj.d -o CMakeFiles\parser.dir\ast\ast_builder.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_builder.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT parser/CMakeFiles/parser.dir/ast/ast_builder.cpp.obj -MF CMakeFiles\parser.dir\ast\ast_builder.cpp.obj.d -o CMakeFiles\parser.dir\ast\ast_builder.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_builder.cpp
 
 parser/CMakeFiles/parser.dir/ast/ast_builder.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/parser.dir/ast/ast_builder.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_builder.cpp > CMakeFiles\parser.dir\ast\ast_builder.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_builder.cpp > CMakeFiles\parser.dir\ast\ast_builder.cpp.i
 
 parser/CMakeFiles/parser.dir/ast/ast_builder.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/parser.dir/ast/ast_builder.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_builder.cpp -o CMakeFiles\parser.dir\ast\ast_builder.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_builder.cpp -o CMakeFiles\parser.dir\ast\ast_builder.cpp.s
 
 parser/CMakeFiles/parser.dir/ast/ast_visitor.cpp.obj: parser/CMakeFiles/parser.dir/flags.make
 parser/CMakeFiles/parser.dir/ast/ast_visitor.cpp.obj: parser/CMakeFiles/parser.dir/includes_CXX.rsp
 parser/CMakeFiles/parser.dir/ast/ast_visitor.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/parser/ast/ast_visitor.cpp
 parser/CMakeFiles/parser.dir/ast/ast_visitor.cpp.obj: parser/CMakeFiles/parser.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object parser/CMakeFiles/parser.dir/ast/ast_visitor.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT parser/CMakeFiles/parser.dir/ast/ast_visitor.cpp.obj -MF CMakeFiles\parser.dir\ast\ast_visitor.cpp.obj.d -o CMakeFiles\parser.dir\ast\ast_visitor.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_visitor.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT parser/CMakeFiles/parser.dir/ast/ast_visitor.cpp.obj -MF CMakeFiles\parser.dir\ast\ast_visitor.cpp.obj.d -o CMakeFiles\parser.dir\ast\ast_visitor.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_visitor.cpp
 
 parser/CMakeFiles/parser.dir/ast/ast_visitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/parser.dir/ast/ast_visitor.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_visitor.cpp > CMakeFiles\parser.dir\ast\ast_visitor.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_visitor.cpp > CMakeFiles\parser.dir\ast\ast_visitor.cpp.i
 
 parser/CMakeFiles/parser.dir/ast/ast_visitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/parser.dir/ast/ast_visitor.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_visitor.cpp -o CMakeFiles\parser.dir\ast\ast_visitor.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\ast\ast_visitor.cpp -o CMakeFiles\parser.dir\ast\ast_visitor.cpp.s
 
 parser/CMakeFiles/parser.dir/trace/trace_manager.cpp.obj: parser/CMakeFiles/parser.dir/flags.make
 parser/CMakeFiles/parser.dir/trace/trace_manager.cpp.obj: parser/CMakeFiles/parser.dir/includes_CXX.rsp
 parser/CMakeFiles/parser.dir/trace/trace_manager.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/parser/trace/trace_manager.cpp
 parser/CMakeFiles/parser.dir/trace/trace_manager.cpp.obj: parser/CMakeFiles/parser.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object parser/CMakeFiles/parser.dir/trace/trace_manager.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT parser/CMakeFiles/parser.dir/trace/trace_manager.cpp.obj -MF CMakeFiles\parser.dir\trace\trace_manager.cpp.obj.d -o CMakeFiles\parser.dir\trace\trace_manager.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\trace\trace_manager.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT parser/CMakeFiles/parser.dir/trace/trace_manager.cpp.obj -MF CMakeFiles\parser.dir\trace\trace_manager.cpp.obj.d -o CMakeFiles\parser.dir\trace\trace_manager.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\trace\trace_manager.cpp
 
 parser/CMakeFiles/parser.dir/trace/trace_manager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/parser.dir/trace/trace_manager.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\trace\trace_manager.cpp > CMakeFiles\parser.dir\trace\trace_manager.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\trace\trace_manager.cpp > CMakeFiles\parser.dir\trace\trace_manager.cpp.i
 
 parser/CMakeFiles/parser.dir/trace/trace_manager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/parser.dir/trace/trace_manager.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\trace\trace_manager.cpp -o CMakeFiles\parser.dir\trace\trace_manager.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\trace\trace_manager.cpp -o CMakeFiles\parser.dir\trace\trace_manager.cpp.s
 
 parser/CMakeFiles/parser.dir/trace/trace_formatter.cpp.obj: parser/CMakeFiles/parser.dir/flags.make
 parser/CMakeFiles/parser.dir/trace/trace_formatter.cpp.obj: parser/CMakeFiles/parser.dir/includes_CXX.rsp
 parser/CMakeFiles/parser.dir/trace/trace_formatter.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/parser/trace/trace_formatter.cpp
 parser/CMakeFiles/parser.dir/trace/trace_formatter.cpp.obj: parser/CMakeFiles/parser.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object parser/CMakeFiles/parser.dir/trace/trace_formatter.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT parser/CMakeFiles/parser.dir/trace/trace_formatter.cpp.obj -MF CMakeFiles\parser.dir\trace\trace_formatter.cpp.obj.d -o CMakeFiles\parser.dir\trace\trace_formatter.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\trace\trace_formatter.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT parser/CMakeFiles/parser.dir/trace/trace_formatter.cpp.obj -MF CMakeFiles\parser.dir\trace\trace_formatter.cpp.obj.d -o CMakeFiles\parser.dir\trace\trace_formatter.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\trace\trace_formatter.cpp
 
 parser/CMakeFiles/parser.dir/trace/trace_formatter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/parser.dir/trace/trace_formatter.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\trace\trace_formatter.cpp > CMakeFiles\parser.dir\trace\trace_formatter.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\trace\trace_formatter.cpp > CMakeFiles\parser.dir\trace\trace_formatter.cpp.i
 
 parser/CMakeFiles/parser.dir/trace/trace_formatter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/parser.dir/trace/trace_formatter.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\trace\trace_formatter.cpp -o CMakeFiles\parser.dir\trace\trace_formatter.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\trace\trace_formatter.cpp -o CMakeFiles\parser.dir\trace\trace_formatter.cpp.s
 
 parser/CMakeFiles/parser.dir/symbol_manager.cpp.obj: parser/CMakeFiles/parser.dir/flags.make
 parser/CMakeFiles/parser.dir/symbol_manager.cpp.obj: parser/CMakeFiles/parser.dir/includes_CXX.rsp
 parser/CMakeFiles/parser.dir/symbol_manager.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/parser/symbol_manager.cpp
 parser/CMakeFiles/parser.dir/symbol_manager.cpp.obj: parser/CMakeFiles/parser.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object parser/CMakeFiles/parser.dir/symbol_manager.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT parser/CMakeFiles/parser.dir/symbol_manager.cpp.obj -MF CMakeFiles\parser.dir\symbol_manager.cpp.obj.d -o CMakeFiles\parser.dir\symbol_manager.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\symbol_manager.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT parser/CMakeFiles/parser.dir/symbol_manager.cpp.obj -MF CMakeFiles\parser.dir\symbol_manager.cpp.obj.d -o CMakeFiles\parser.dir\symbol_manager.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\symbol_manager.cpp
 
 parser/CMakeFiles/parser.dir/symbol_manager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/parser.dir/symbol_manager.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\symbol_manager.cpp > CMakeFiles\parser.dir\symbol_manager.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\symbol_manager.cpp > CMakeFiles\parser.dir\symbol_manager.cpp.i
 
 parser/CMakeFiles/parser.dir/symbol_manager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/parser.dir/symbol_manager.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\symbol_manager.cpp -o CMakeFiles\parser.dir\symbol_manager.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\symbol_manager.cpp -o CMakeFiles\parser.dir\symbol_manager.cpp.s
 
 parser/CMakeFiles/parser.dir/semantic/semantic_analyzer.cpp.obj: parser/CMakeFiles/parser.dir/flags.make
 parser/CMakeFiles/parser.dir/semantic/semantic_analyzer.cpp.obj: parser/CMakeFiles/parser.dir/includes_CXX.rsp
 parser/CMakeFiles/parser.dir/semantic/semantic_analyzer.cpp.obj: C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/src/parser/semantic/semantic_analyzer.cpp
 parser/CMakeFiles/parser.dir/semantic/semantic_analyzer.cpp.obj: parser/CMakeFiles/parser.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object parser/CMakeFiles/parser.dir/semantic/semantic_analyzer.cpp.obj"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT parser/CMakeFiles/parser.dir/semantic/semantic_analyzer.cpp.obj -MF CMakeFiles\parser.dir\semantic\semantic_analyzer.cpp.obj.d -o CMakeFiles\parser.dir\semantic\semantic_analyzer.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\semantic\semantic_analyzer.cpp
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT parser/CMakeFiles/parser.dir/semantic/semantic_analyzer.cpp.obj -MF CMakeFiles\parser.dir\semantic\semantic_analyzer.cpp.obj.d -o CMakeFiles\parser.dir\semantic\semantic_analyzer.cpp.obj -c C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\semantic\semantic_analyzer.cpp
 
 parser/CMakeFiles/parser.dir/semantic/semantic_analyzer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/parser.dir/semantic/semantic_analyzer.cpp.i"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\semantic\semantic_analyzer.cpp > CMakeFiles\parser.dir\semantic\semantic_analyzer.cpp.i
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\semantic\semantic_analyzer.cpp > CMakeFiles\parser.dir\semantic\semantic_analyzer.cpp.i
 
 parser/CMakeFiles/parser.dir/semantic/semantic_analyzer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/parser.dir/semantic/semantic_analyzer.cpp.s"
-	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\semantic\semantic_analyzer.cpp -o CMakeFiles\parser.dir\semantic\semantic_analyzer.cpp.s
+	cd /d C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\build\parser && C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\HUAWEI\Desktop\Proyectos\_universidad\compiladores\ll1-parser\src\parser\semantic\semantic_analyzer.cpp -o CMakeFiles\parser.dir\semantic\semantic_analyzer.cpp.s
 
 # Object files for target parser
 parser_OBJECTS = \
