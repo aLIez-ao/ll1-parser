@@ -104,11 +104,15 @@ static std::string nodeLabel(ASTNode* node) {
         // No-terminales
         case T::PROGRAM:        color = ASTColor::NT; label = "PROGRAMA";       break;
         case T::DECLARATIONS:   color = ASTColor::NT; label = "DECLARACIONES";  break;
+        case T::DECLARATION:    color = ASTColor::NT; label = "DECLARACION";    break;
         case T::VARIABLE_LIST:  color = ASTColor::NT; label = "LISTA_VAR";      break;
         case T::TYPE_SPECIFIER: color = ASTColor::NT; label = "TIPO";           break;
         case T::BLOCK:          color = ASTColor::NT; label = "BLOQUE";         break;
         case T::STATEMENT_LIST: color = ASTColor::NT; label = "SENTENCIAS";     break;
+        case T::STATEMENT:      color = ASTColor::NT; label = "SENTENCIA";      break;
+        case T::ASSIGN_STATEMENT: color = ASTColor::NT; label = "ASIGNACION";   break;
         case T::EXPRESSION:     color = ASTColor::NT; label = "EXPRESION";      break;
+        case T::EXPRESSION_PRIME: color = ASTColor::NT; label = "EXPR_CONT";    break;
         case T::FACTOR:         color = ASTColor::NT; label = "FACTOR";         break;
 
         // Palabras clave
@@ -150,7 +154,7 @@ static std::string nodeLabel(ASTNode* node) {
 static bool shouldSkip(ASTNode* node) {
     if (!node) return true;
     using T = ASTNodeType;
-    // Puntuación pura
+    // Puntuación pura: nunca visible en el AST semántico
     switch (node->type) {
         case T::SEMICOLON:
         case T::COLON:
@@ -164,12 +168,14 @@ static bool shouldSkip(ASTNode* node) {
         default:
             break;
     }
-    // Nodos intermedios de la gramática sin hijos visibles
+    // Nodos intermedios SIN hijos visibles y sin significado propio
+    // STATEMENT y ASSIGN_STATEMENT NUNCA se omiten: son el contenido semántico
     if (node->children.empty()) {
         switch (node->type) {
             case T::VARIABLE_LIST:
             case T::STATEMENT_LIST:
             case T::EXPRESSION:
+            case T::EXPRESSION_PRIME:
             case T::FACTOR:
             case T::TYPE_SPECIFIER:
             case T::UNKNOWN:
@@ -179,18 +185,20 @@ static bool shouldSkip(ASTNode* node) {
                 break;
         }
     }
+    // Nodo EPSILON explícito (hoja)
+    if (node->type == T::EPSILON) return true;
     return false;
 }
 
 // ── Nodos transparentes: sus hijos suben al padre directamente ───────────────
-// L2 y S2 son artefactos de la gramática para evitar recursión izquierda.
-// No tienen significado propio; sus hijos deben aparecer al mismo nivel que
-// los hermanos del padre.
+// L2 (VARIABLE_LIST) y S2 (STATEMENT_LIST) son artefactos de eliminación de
+// recursión izquierda. Sus hijos (L/S) deben aparecer al mismo nivel que sus
+// hermanos. L (DECLARATION) y S (STATEMENT) son contenido semántico real:
+// NO son transparentes.
 static bool isTransparent(ASTNode* node) {
     if (!node) return false;
     using T = ASTNodeType;
-    // VARIABLE_LIST con un solo hijo VARIABLE_LIST (el "L2 → L" case)
-    // STATEMENT_LIST con un solo hijo STATEMENT_LIST (el "S2 → S" case)
+    // Solo aplanar los nodos de "continuación" (L2 y S2)
     return node->type == T::VARIABLE_LIST || node->type == T::STATEMENT_LIST;
 }
 

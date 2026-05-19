@@ -24,8 +24,8 @@
 # Programa: encabezado, declaraciones, bloque
 P  -> PROGRAM ID SEMICOLON D B
 
-# Sección de declaraciones obligatoria
-D  -> VAR L
+# Sección de declaraciones: VAR + lista, o vacía (EPS)
+D  -> VAR L | EPS
 
 # Primera variable declarada
 L  -> ID COLON T SEMICOLON L2

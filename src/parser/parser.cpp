@@ -27,6 +27,20 @@ LL1Parser::Result LL1Parser::parse(const std::vector<Token>& tokens,
 
     traceManager_.logInitialization(startSymbol, static_cast<int>(tokens.size()));
 
+    // Helper: convierte la pila a string (fondo→tope, separado por espacios)
+    // Copia la pila para no modificarla
+    auto stackToStr = [](std::stack<std::string> s) -> std::string {
+        std::vector<std::string> v;
+        while (!s.empty()) { v.push_back(s.top()); s.pop(); }
+        std::string result;
+        for (auto it = v.rbegin(); it != v.rend(); ++it) {
+            if (*it == "$$AST_POP$$") continue;  // ocultar marcadores internos
+            if (!result.empty()) result += " ";
+            result += *it;
+        }
+        return result;
+    };
+
     int step = 0;
     bool parsingComplete = false;
     while (!stack_.empty()) {
@@ -44,7 +58,7 @@ LL1Parser::Result LL1Parser::parse(const std::vector<Token>& tokens,
             continue;
         }
 
-        traceManager_.logStep(step, top, cur);
+        traceManager_.logStep(step, stackToStr(stack_), cur);
 
         if (top == "$") {
             if (cur == "$") {
@@ -53,8 +67,13 @@ LL1Parser::Result LL1Parser::parse(const std::vector<Token>& tokens,
                 parsingComplete = true;
                 break;
             } else {
+                const auto& tk = tokens_[currentTokenIndex_];
+                std::string msg = "Error sintáctico (línea " + std::to_string(tk.line) +
+                                  ", col " + std::to_string(tk.column) +
+                                  "): se esperaba fin de entrada ($), se recibió " +
+                                  cur + "('" + tk.lexeme + "')";
                 error("$", cur);
-                result.errors.push_back("Error: esperado $, recibido " + cur);
+                result.errors.push_back(msg);
                 result.errorCount++;
                 break;
             }
@@ -92,9 +111,14 @@ LL1Parser::Result LL1Parser::parse(const std::vector<Token>& tokens,
                 stack_.pop();
                 nextToken();
             } else {
+                const auto& tk = tokens_[currentTokenIndex_];
+                std::string msg = "Error sintáctico (línea " + std::to_string(tk.line) +
+                                  ", col " + std::to_string(tk.column) +
+                                  "): se esperaba " + top +
+                                  ", se recibió " + cur + "('" + tk.lexeme + "')";
                 error(top, cur);
                 stack_.pop();
-                result.errors.push_back("Error: esperado " + top + ", recibido " + cur);
+                result.errors.push_back(msg);
                 result.errorCount++;
             }
         }
@@ -107,8 +131,10 @@ LL1Parser::Result LL1Parser::parse(const std::vector<Token>& tokens,
     }
 
     result.success = parsingComplete && result.errorCount == 0;
-    if (!parsingComplete) {
-        result.errors.push_back("Error: analisis incompleto");
+    if (!parsingComplete && result.errorCount == 0) {
+        // Llegó a EOF antes de consumir toda la gramática
+        result.errors.push_back("Error sintáctico: análisis incompleto — entrada terminó inesperadamente");
+        result.errorCount++;
     }
 
     if (buildAST_ && result.success) {
@@ -204,11 +230,17 @@ void LL1Parser::expandNonTerminal(const std::string& nt) {
     auto prodIt = cell.find(cur);
 
     if (prodIt == cell.end() || !prodIt->second.isValid) {
-        traceManager_.logError(static_cast<int>(currentTokenIndex_), nt, cur,
-            hasMoreTokens() ? tokens_[currentTokenIndex_].line : 0);
+        int errLine   = hasMoreTokens() ? tokens_[currentTokenIndex_].line   : 0;
+        int errCol    = hasMoreTokens() ? tokens_[currentTokenIndex_].column : 0;
+        std::string lex = hasMoreTokens() ? tokens_[currentTokenIndex_].lexeme : "";
+        traceManager_.logError(static_cast<int>(currentTokenIndex_), nt, cur, errLine);
         stack_.pop();
         if (currentResult_) {
-            currentResult_->errors.push_back("Error: esperaba producción para " + nt + " con token " + cur);
+            std::string msg = "Error sintáctico (línea " + std::to_string(errLine) +
+                              ", col " + std::to_string(errCol) +
+                              "): token inesperado " + cur + "('" + lex + "')" +
+                              " al expandir no-terminal " + nt;
+            currentResult_->errors.push_back(msg);
             currentResult_->errorCount++;
         }
         return;
@@ -220,13 +252,16 @@ void LL1Parser::expandNonTerminal(const std::string& nt) {
     if (buildAST_ && !astStack_.empty()) {
         ASTNodeType nodeType = ASTNodeType::UNKNOWN;
         if (nt == "P") nodeType = ASTNodeType::PROGRAM;
-        else if (nt == "D") nodeType = ASTNodeType::DECLARATIONS;
-        else if (nt == "L" || nt == "L2") nodeType = ASTNodeType::VARIABLE_LIST;
-        else if (nt == "T") nodeType = ASTNodeType::TYPE_SPECIFIER;
-        else if (nt == "B") nodeType = ASTNodeType::BLOCK;
-        else if (nt == "S" || nt == "S2") nodeType = ASTNodeType::STATEMENT_LIST;
-        else if (nt == "E" || nt == "E2") nodeType = ASTNodeType::EXPRESSION;
-        else if (nt == "F") nodeType = ASTNodeType::FACTOR;
+        else if (nt == "D")  nodeType = ASTNodeType::DECLARATIONS;
+        else if (nt == "L")  nodeType = ASTNodeType::DECLARATION;      // una var declarada
+        else if (nt == "L2") nodeType = ASTNodeType::VARIABLE_LIST;    // continuación lista
+        else if (nt == "T")  nodeType = ASTNodeType::TYPE_SPECIFIER;
+        else if (nt == "B")  nodeType = ASTNodeType::BLOCK;
+        else if (nt == "S")  nodeType = ASTNodeType::STATEMENT;        // sentencia asignación
+        else if (nt == "S2") nodeType = ASTNodeType::STATEMENT_LIST;   // continuación
+        else if (nt == "E")  nodeType = ASTNodeType::EXPRESSION;
+        else if (nt == "E2") nodeType = ASTNodeType::EXPRESSION_PRIME;
+        else if (nt == "F")  nodeType = ASTNodeType::FACTOR;
 
         auto newNode = std::make_shared<ASTNode>(nodeType, nt, 0, 0);
         astStack_.top()->addChild(newNode);

@@ -101,39 +101,72 @@ static void displayFirstFollow(const Grammar& g,
     }
 }
 
-// ── Mostrar tabla LL(1) ──────────────────────────────────────────────────────
+// ── Mostrar tabla LL(1) compacta (bloques de columnas) ──────────────────────
 static void displayLL1Table(const Grammar& g, const LL1Table& table) {
-    // Recopilar todos los terminales que aparecen en la tabla
+    // Recopilar todos los terminales con entradas válidas
     std::vector<std::string> terminals;
     for (const auto& [nt, row] : table)
         for (const auto& [term, entry] : row)
-            if (entry.isValid && std::find(terminals.begin(), terminals.end(), term) == terminals.end())
+            if (entry.isValid &&
+                std::find(terminals.begin(), terminals.end(), term) == terminals.end())
                 terminals.push_back(term);
     std::sort(terminals.begin(), terminals.end());
 
-    const int colNT   = 5;
-    const int colTerm = 22;
+    // Calcular ancho máximo de cada columna terminal
+    const int colNT = 5;
+    const int MAX_COLS = 6;          // máximo de terminales por bloque
+    const int MIN_COL_W = 8;
 
-    // Encabezado
-    std::cout << "    " << std::setw(colNT) << std::left << "NT";
-    for (const auto& t : terminals)
-        std::cout << std::setw(colTerm) << std::left << t;
-    std::cout << "\n    " << std::string(colNT + colTerm * (int)terminals.size(), '-') << "\n";
-
-    for (const auto& nt : g.ntOrder) {
+    auto cellStr = [&](const std::string& nt, const std::string& t) -> std::string {
         auto rowIt = table.find(nt);
-        std::cout << "    " << std::setw(colNT) << std::left << nt;
-        for (const auto& t : terminals) {
-            std::string cell = "─";
-            if (rowIt != table.end()) {
-                auto cellIt = rowIt->second.find(t);
-                if (cellIt != rowIt->second.end() && cellIt->second.isValid)
-                    cell = nt + "→" + cellIt->second.productionStr;
+        if (rowIt == table.end()) return "-";
+        auto cellIt = rowIt->second.find(t);
+        if (cellIt == rowIt->second.end() || !cellIt->second.isValid) return "-";
+        // Formato compacto: solo el RHS de la producción
+        return cellIt->second.productionStr;
+    };
+
+    // Imprimir en bloques de MAX_COLS terminales
+    for (size_t start = 0; start < terminals.size(); start += MAX_COLS) {
+        size_t end = std::min(start + (size_t)MAX_COLS, terminals.size());
+        std::vector<std::string> block(terminals.begin() + start,
+                                       terminals.begin() + end);
+
+        // Calcular ancho de cada columna en este bloque
+        std::vector<int> widths(block.size(), MIN_COL_W);
+        for (size_t bi = 0; bi < block.size(); bi++) {
+            widths[bi] = std::max(widths[bi], (int)block[bi].size() + 2);
+            for (const auto& nt : g.ntOrder) {
+                int w = (int)cellStr(nt, block[bi]).size() + 2;
+                widths[bi] = std::max(widths[bi], w);
             }
-            if ((int)cell.size() >= colTerm) cell = cell.substr(0, colTerm - 2) + "…";
-            std::cout << std::setw(colTerm) << std::left << cell;
         }
-        std::cout << "\n";
+
+        // Separador del bloque
+        int totalW = colNT;
+        for (int w : widths) totalW += w;
+        std::string sep = "    " + std::string(totalW, '-');
+
+        if (start > 0) std::cout << "\n";
+        // Encabezado de columnas
+        std::cout << sep << "\n";
+        std::cout << "    " << std::setw(colNT) << std::left << "NT";
+        for (size_t bi = 0; bi < block.size(); bi++)
+            std::cout << std::setw(widths[bi]) << std::left << block[bi];
+        std::cout << "\n" << sep << "\n";
+
+        // Filas
+        for (const auto& nt : g.ntOrder) {
+            std::cout << "    " << std::setw(colNT) << std::left << nt;
+            for (size_t bi = 0; bi < block.size(); bi++) {
+                std::string cell = cellStr(nt, block[bi]);
+                if ((int)cell.size() >= widths[bi] - 1)
+                    cell = cell.substr(0, widths[bi] - 3) + "..";
+                std::cout << std::setw(widths[bi]) << std::left << cell;
+            }
+            std::cout << "\n";
+        }
+        std::cout << sep << "\n";
     }
 }
 
@@ -146,19 +179,26 @@ static void displaySymbolTable(const SemanticResult& sem) {
     const int cName  = 16;
     const int cType  = 8;
     const int cLine  = 7;
+    const int cVal   = 14;
+    const int cUsed  = 6;
+    std::string sep = "    " + std::string(cName+cType+cLine+cVal+cUsed+2, '-');
     std::cout << "    " << std::left
               << std::setw(cName) << "Variable"
               << std::setw(cType) << "Tipo"
               << std::setw(cLine) << "Línea"
+              << std::setw(cVal)  << "Valor inicial"
               << "Usada\n";
-    std::cout << "    " << std::string(cName + cType + cLine + 5, '-') << "\n";
+    std::cout << sep << "\n";
     for (const auto& [name, sym] : sem.symbols) {
         std::cout << "    " << std::left
                   << std::setw(cName) << name
                   << std::setw(cType) << sym.type
                   << std::setw(cLine) << sym.declLine
+                  << std::setw(cVal)  << "-"   // sin evaluación de expresiones aún
                   << (sym.used ? "sí" : "no") << "\n";
     }
+    std::cout << sep << "\n";
+    std::cout << "    Total: " << sem.symbols.size() << " símbolo(s)\n";
 }
 
 // ── Ayuda ────────────────────────────────────────────────────────────────────
@@ -246,14 +286,44 @@ int main(int argc, char* argv[]) {
     if (lexResult.errorHandler.hasErrors())
         std::cout << "  Errores léxicos  : " << lexResult.errorHandler.getErrorCount() << "\n";
 
-    std::cout << "\n  Pos  Tipo         Lexema\n";
-    std::cout << "  " << std::string(38, '-') << "\n";
+    // Categoría legible de un token
+    auto tokenCategory = [](const Token& t) -> std::string {
+        if (t.isKeyword())   return "Palabra clave";
+        if (t.type == TokenType::IDENT) return "Identificador";
+        if (t.isLiteral())   return "Literal";
+        if (t.isOperator())  return "Operador";
+        if (t.isDelimiter()) return "Delimitador";
+        if (t.isEOF())       return "Fin de archivo";
+        if (t.isError())     return "ERROR LEXICO";
+        return "Desconocido";
+    };
+
+    // Cabecera
+    std::cout << "\n";
+    const int W_IDX=5, W_LIN=7, W_COL=6, W_SYM=14, W_CAT=16;
+    std::cout << "  " << std::string(W_IDX+W_LIN+W_COL+W_SYM+W_CAT+10, '-') << "\n";
+    std::cout << "  " << std::left
+              << std::setw(W_IDX) << "#"
+              << std::setw(W_LIN) << "Línea"
+              << std::setw(W_COL) << "Col"
+              << std::setw(W_SYM) << "Símbolo"
+              << std::setw(W_CAT) << "Categoría"
+              << "Lexema\n";
+    std::cout << "  " << std::string(W_IDX+W_LIN+W_COL+W_SYM+W_CAT+10, '-') << "\n";
+
     for (size_t i = 0; i < lexResult.tokens.size(); i++) {
-        auto& t = lexResult.tokens[i];
-        std::cout << "  " << std::setw(3) << i
-                  << "  " << std::setw(12) << std::left << t.toParserSymbol()
-                  << "  '" << t.lexeme << "'\n";
+        const auto& t = lexResult.tokens[i];
+        // Marcar errores léxicos con "!"
+        std::string marker = t.isError() ? "! " : "  ";
+        std::cout << marker
+                  << std::setw(W_IDX) << std::left << i
+                  << std::setw(W_LIN) << t.line
+                  << std::setw(W_COL) << t.column
+                  << std::setw(W_SYM) << t.toParserSymbol()
+                  << std::setw(W_CAT) << tokenCategory(t)
+                  << "'" << t.lexeme << "'\n";
     }
+    std::cout << "  " << std::string(W_IDX+W_LIN+W_COL+W_SYM+W_CAT+10, '-') << "\n";
 
     // ── [3] Gramática ────────────────────────────────────────────────────────
     printSection(3, "Gramática LL(1)");
@@ -335,6 +405,7 @@ int main(int argc, char* argv[]) {
     // ── [7] Análisis sintáctico ──────────────────────────────────────────────
     printSection(7, "Análisis sintáctico (LL1)");
     LL1Parser parser;
+    parser.enableASTBuilding(true);  // AST activado por defecto
     if (trace) {
         parser.setTraceLevel(traceLevel);
         parser.setTraceFile("traza_analisis.txt");
