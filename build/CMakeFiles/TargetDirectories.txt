@@ -1,0 +1,12 @@
+C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/build/CMakeFiles/ll1-parser.dir
+C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/build/CMakeFiles/edit_cache.dir
+C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/build/CMakeFiles/rebuild_cache.dir
+C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/build/lexer/CMakeFiles/lexer.dir
+C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/build/lexer/CMakeFiles/edit_cache.dir
+C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/build/lexer/CMakeFiles/rebuild_cache.dir
+C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/build/grammar/CMakeFiles/grammar.dir
+C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/build/grammar/CMakeFiles/edit_cache.dir
+C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/build/grammar/CMakeFiles/rebuild_cache.dir
+C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/build/parser/CMakeFiles/parser.dir
+C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/build/parser/CMakeFiles/edit_cache.dir
+C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/build/parser/CMakeFiles/rebuild_cache.dir

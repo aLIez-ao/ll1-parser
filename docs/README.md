@@ -156,7 +156,7 @@ g++ -std=c++17 -O2 -I. \
 ## 4. Ejecución
 
 ```bash
-./ll1_parser --input <archivo.pas> [opciones]
+./ll1-parser --input <archivo.pas> [opciones]
 ```
 
 ### 4.1 Flags disponibles
@@ -186,26 +186,26 @@ g++ -std=c++17 -O2 -I. \
 **Análisis básico:**
 
 ```bash
-./ll1_parser --input test/programa.pas
+./build/bin/ll1-parser --input test/programa.pas
 ```
 
 **Mostrar FIRST/FOLLOW y tabla LL(1):**
 
 ```bash
-./ll1_parser --input test/programa.pas --sets --table
+./build/bin/ll1-parser --input test/programa.pas --sets --table
 ```
 
 **Generar traza completa:**
 
 ```bash
-./ll1_parser --input test/programa.pas --trace
+./build/bin/ll1-parser --input test/programa.pas --trace
 # Genera traza_analisis.txt en el directorio actual
 ```
 
 **Traza en modo DEBUG con gramática personalizada:**
 
 ```bash
-./ll1_parser --input test/programa.pas \
+./build/bin/ll1-parser --input test/programa.pas \
              --grammar mi_gramatica.txt \
              --trace --trace-level 4
 ```
@@ -213,7 +213,7 @@ g++ -std=c++17 -O2 -I. \
 **Ver ayuda:**
 
 ```bash
-./ll1_parser --help
+./build/bin/ll1-parser --help
 ```
 
 ---

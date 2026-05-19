@@ -1,0 +1,2 @@
+C:\msys64\mingw64\bin\ar.exe qc libparser.a CMakeFiles/parser.dir/parser.cpp.obj CMakeFiles/parser.dir/ast/ast_node.cpp.obj CMakeFiles/parser.dir/ast/ast_builder.cpp.obj CMakeFiles/parser.dir/ast/ast_visitor.cpp.obj CMakeFiles/parser.dir/trace/trace_manager.cpp.obj CMakeFiles/parser.dir/trace/trace_formatter.cpp.obj CMakeFiles/parser.dir/symbol_manager.cpp.obj CMakeFiles/parser.dir/semantic/semantic_analyzer.cpp.obj
+C:\msys64\mingw64\bin\ranlib.exe libparser.a

@@ -1,0 +1,2 @@
+C:\msys64\mingw64\bin\ar.exe qc libgrammar.a CMakeFiles/grammar.dir/core/grammar.cpp.obj CMakeFiles/grammar.dir/io/grammar_parser.cpp.obj CMakeFiles/grammar.dir/analysis/validator.cpp.obj CMakeFiles/grammar.dir/analysis/first_set.cpp.obj CMakeFiles/grammar.dir/analysis/follow_set.cpp.obj CMakeFiles/grammar.dir/analysis/ll1_table.cpp.obj
+C:\msys64\mingw64\bin\ranlib.exe libgrammar.a

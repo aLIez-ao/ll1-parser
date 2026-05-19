@@ -1,0 +1,10 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/build/cmake_install.cmake",
+		"C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/build/lexer/cmake_install.cmake",
+		"C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/build/grammar/cmake_install.cmake",
+		"C:/Users/HUAWEI/Desktop/Proyectos/_universidad/compiladores/ll1-parser/build/parser/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
